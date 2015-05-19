@@ -1,14 +1,51 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package API;
 
+import javax.swing.JOptionPane;
+
 /**
- *
- * @author emanuel
+ * @author Emanuel Martinez Pinzon
  */
-public class Notificacion {
+public class Notificacion{
+    //Probando objetos
+    public void HolaMundo(){
+        System.out.println("Hola mundo!!!");
+    }
     
+    //-----------------------------NOTIFICACIONES------------------------------//
+    
+    /**
+     * Muestra el JOptionPane sin icono, solo dejando el titulo y el mensaje.
+     * @param marco
+     * @param mensaje
+     */
+    public void alerta(String marco, String mensaje){
+        JOptionPane.showMessageDialog(null, mensaje, marco, JOptionPane.PLAIN_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, un titulo y un mensaje.
+     * @param marco
+     * @param mensaje
+     */
+    public void alertaError(String marco, String mensaje){
+        JOptionPane.showMessageDialog(null, mensaje, marco, JOptionPane.ERROR_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, un titulo y un mensaje.
+     * @param marco
+     * @param mensaje
+     */
+    public void alertaAtencion(String marco, String mensaje){
+        JOptionPane.showMessageDialog(null, mensaje, marco, JOptionPane.WARNING_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de interrogacion, un titulo y un mensaje.
+     * @param marco
+     * @param mensaje
+     */
+    public void alertaCuestion(String marco, String mensaje){
+        JOptionPane.showMessageDialog(null, mensaje, marco, 3);
+    }
 }

@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ejecucion;
 
+import API.Notificacion;
+
 /**
- *
- * @author emanuel
+ * @author Emanuel Martinez Pinzon
  */
 public class Main {
-    
+    public static void main(String[] emp){
+        Notificacion api = new Notificacion();
+    }
 }
