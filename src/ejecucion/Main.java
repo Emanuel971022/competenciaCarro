@@ -17,6 +17,20 @@ public class Main {
 //        api.alertaAtencion("Borde", "Mensaje");
         
         //Opciones
-        System.out.println(""+api.opcion("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionCompleta("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionSINO("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionSI("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionPreguntaCompleta("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionPreguntaSINO("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionPreguntaSI("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionErrorCompleta("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionErrorSINO("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionErrorSI("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionAlertaCompleta("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionAlertaSINO("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionAlertaSI("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionInformativoCompleta("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionInformativoSINO("Titulo", "Mensaje"));
+        System.out.println(""+api.opcionInformativoSI("Titulo", "Mensaje"));
     }
 }
