@@ -13,7 +13,7 @@ public class Notificacion{
      * @param titulo
      * @param mensaje
      */
-    public void alerta(String titulo, String mensaje){
+    public static void alerta(String titulo, String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.PLAIN_MESSAGE);
     }
     
@@ -22,7 +22,7 @@ public class Notificacion{
      * @param titulo
      * @param mensaje
      */
-    public void alertaPregunta(String titulo, String mensaje){
+    public static void alertaPregunta(String titulo, String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.QUESTION_MESSAGE);
     }
     
@@ -31,7 +31,7 @@ public class Notificacion{
      * @param titulo
      * @param mensaje
      */
-    public void alertaError(String titulo, String mensaje){
+    public static void alertaError(String titulo, String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.ERROR_MESSAGE);
     }
     
@@ -40,7 +40,7 @@ public class Notificacion{
      * @param titulo
      * @param mensaje
      */
-    public void alertaAtencion(String titulo, String mensaje){
+    public static void alertaAtencion(String titulo, String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
     }
     
@@ -49,7 +49,7 @@ public class Notificacion{
      * @param titulo
      * @param mensaje 
      */
-    public void alertaInformativo(String titulo, String mensaje){
+    public static void alertaInformativo(String titulo, String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
     }
     
@@ -65,7 +65,7 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      * Retorna 2 si selecciona "Cancelar"
      */
-    public int opcionCompleta(String titulo, String mensaje){
+    public static int opcionCompleta(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, new Object[]{"Si","No", "Cancelar"}, "Si");
@@ -81,7 +81,7 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      * Retorna 1 si selecciona "No"
      */
-    public int opcionSINO(String titulo, String mensaje){
+    public static int opcionSINO(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
@@ -96,7 +96,7 @@ public class Notificacion{
      * @return Retorna un entero segun la opcion seleccionada.
      * Retorna 0 si selecciona "Si"
      */
-    public int opcionSI(String titulo, String mensaje){
+    public static int opcionSI(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
@@ -113,7 +113,7 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      * Retorna 2 si selecciona "Cancelar"
      */
-    public int opcionPreguntaCompleta(String titulo, String mensaje){
+    public static int opcionPreguntaCompleta(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
@@ -129,7 +129,7 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      * Retorna 1 si selecciona "No"
      */
-    public int opcionPreguntaSINO(String titulo, String mensaje){
+    public static int opcionPreguntaSINO(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
@@ -144,7 +144,7 @@ public class Notificacion{
      * @return Retorna un entero segun la opcion seleccionada.
      * Retorna 0 si selecciona "Si"
      */
-    public int opcionPreguntaSI(String titulo, String mensaje){
+    public static int opcionPreguntaSI(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
@@ -161,7 +161,7 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      * Retorna 2 si selecciona "Cancelar"
      */
-    public int opcionErrorCompleta(String titulo, String mensaje){
+    public static int opcionErrorCompleta(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
@@ -177,7 +177,7 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      * Retorna 1 si selecciona "No"
      */
-    public int opcionErrorSINO(String titulo, String mensaje){
+    public static int opcionErrorSINO(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
@@ -192,7 +192,7 @@ public class Notificacion{
      * @return Retorna un entero segun la opcion seleccionada.
      * Retorna 0 si selecciona "Si"
      */
-    public int opcionErrorSI(String titulo, String mensaje){
+    public static int opcionErrorSI(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.ERROR_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
@@ -209,7 +209,7 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      * Retorna 2 si selecciona "Cancelar"
      */
-    public int opcionAlertaCompleta(String titulo, String mensaje){
+    public static int opcionAlertaCompleta(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
@@ -225,7 +225,7 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      * Retorna 1 si selecciona "No"
      */
-    public int opcionAlertaSINO(String titulo, String mensaje){
+    public static int opcionAlertaSINO(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
@@ -240,7 +240,7 @@ public class Notificacion{
      * @return Retorna un entero segun la opcion seleccionada.
      * Retorna 0 si selecciona "Si"
      */
-    public int opcionAlertaSI(String titulo, String mensaje){
+    public static int opcionAlertaSI(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
@@ -257,7 +257,7 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      * Retorna 2 si selecciona "Cancelar"
      */
-    public int opcionInformativoCompleta(String titulo, String mensaje){
+    public static int opcionInformativoCompleta(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
@@ -273,7 +273,7 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      * Retorna 1 si selecciona "No"
      */
-    public int opcionInformativoSINO(String titulo, String mensaje){
+    public static int opcionInformativoSINO(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
@@ -288,10 +288,55 @@ public class Notificacion{
      * @return Retorna un entero segun la opcion seleccionada.
      * Retorna 0 si selecciona "Si"
      */
-    public int opcionInformativoSI(String titulo, String mensaje){
+    public static int opcionInformativoSI(String titulo, String mensaje){
         int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
         return opcion;
     }
+    
+    //-----------------------------INGRESO DE DATOS----------------------------//
+    public static String ingresar(String mensaje){
+        return JOptionPane.showInputDialog(mensaje);
+    }
+    
+    public static String ingresar(String titulo, String mensaje){
+        String ventana = JOptionPane.showInputDialog(null, mensaje, titulo,
+                JOptionPane.PLAIN_MESSAGE);
+        return ventana;
+    }
+    
+    public static int ingresarChar(String titulo, String mensaje){
+        String numero = JOptionPane.showInputDialog(null, mensaje, titulo,
+                JOptionPane.PLAIN_MESSAGE);
+        char b[] = numero.toCharArray();        
+        
+        return (b[0]);
+    }
+    
+    public static int ingresarInt(String titulo, String mensaje){
+        int numero = -1;
+        try{
+            numero = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje,
+                    titulo, JOptionPane.PLAIN_MESSAGE));
+        }catch(NumberFormatException nfe){
+            alertaError("Titulo", "Debe ingresar numeros enteros solamente");
+        }
+        
+        return numero;
+    }
+    
+    public static float ingresarFloat(String titulo, String mensaje){
+        float numero = -1;
+        try{
+            numero = Float.parseFloat(JOptionPane.showInputDialog(null, mensaje,
+                    titulo, JOptionPane.PLAIN_MESSAGE));
+        }catch(NumberFormatException nfe){
+            alertaError("Error", "Debe ingresar solo numeros");
+        }
+        
+        return numero;
+    }
+    
+    
 }
