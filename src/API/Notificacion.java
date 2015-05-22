@@ -338,5 +338,19 @@ public class Notificacion{
         return numero;
     }
     
+    public static String ingresarPregunta(String titulo, String mensaje){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.QUESTION_MESSAGE);
+    }
     
+    public static String ingresarError(String titulo, String mensaje){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public static String ingresarAlerta(String titulo, String mensaje){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
+    }
+    
+    public static String ingresarInformativo(String titulo, String mensaje){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
 }

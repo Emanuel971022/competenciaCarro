@@ -33,9 +33,11 @@ public class Main {
 //        System.out.println(""+api.opcionInformativoSINO("Titulo", "Mensaje"));
 //        System.out.println(""+api.opcionInformativoSI("Titulo", "Mensaje"));
         
-        System.out.println(Notificacion.ingresar("Mensaje"));
-        System.out.println(Notificacion.ingresar("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarInt("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarFloat("Titulo", "Mensaje"));
+        //Ingreso de datos
+//        System.out.println(Notificacion.ingresar("Mensaje"));
+//        System.out.println(Notificacion.ingresar("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarInt("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarFloat("Titulo", "Mensaje"));
+        System.out.println(Notificacion.ingresarPregunta("Titulo", "Mensaje"));
     }
 }
