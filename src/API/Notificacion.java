@@ -4,6 +4,12 @@ import javax.swing.JOptionPane;
 
 /**
  * @author Emanuel Martinez Pinzon
+ * 
+ * Esta clase contiene la mayoria de los metodos de JOptionPane documentados y
+ * simplificados para que el programador la agregue a sus proyectos y con solo
+ * importarla en las otras clases pueda hacer uso de estas herramientas, que 
+ * aunque pueden ser programadas como se hace por dafault esto ofrece una
+ * estructura mas comoda para presentar mensajes por JOptionPane
  */
 public class Notificacion{    
     //---------------------------------ALERTAS---------------------------------//
@@ -400,6 +406,423 @@ public class Notificacion{
      */
     public static String ingresarInformativo(String titulo, String mensaje){
         return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    //----------------------INGRESO DE DATOS CON COMBO-------------------------//
+    
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y un item 
+     * en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoCombo(String titulo, String mensaje, String item1){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.PLAIN_MESSAGE, null, new Object[] {item1}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y dos item's
+     * en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoCombo(String titulo, String mensaje, String item1,
+            String item2){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.PLAIN_MESSAGE, null, new Object[] {item1, item2},
+                item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y tres item's
+     * en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoCombo(String titulo, String mensaje, String item1,
+            String item2, String item3){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.PLAIN_MESSAGE, null, new Object[] {item1, item2,
+                    item3}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y cuatro item's
+     * en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.PLAIN_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y cinco item's
+     * en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4, String item5){
+        return JOptionPane.showInputDialog(null, mensaje, titulo,
+                JOptionPane.PLAIN_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4, item5}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con icono de pregunta, un titulo, un mensaje y un
+     * item en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoPreguntaCombo(String titulo, String mensaje, String item1){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.QUESTION_MESSAGE, null, new Object[] {item1}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con icono de pregunta, un titulo, un mensaje y dos
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoPreguntaCombo(String titulo, String mensaje, String item1,
+            String item2){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.QUESTION_MESSAGE, null, new Object[] {item1, item2},
+                item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con icono de pregunta, un titulo, un mensaje y tres
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoPreguntaCombo(String titulo, String mensaje, String item1,
+            String item2, String item3){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.QUESTION_MESSAGE, null, new Object[] {item1, item2,
+                    item3}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con icono de pregunta, un titulo, un mensaje y
+     * cuatro item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoPreguntaCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.QUESTION_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con icono de pregunta, un titulo, un mensaje y
+     * cinco item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoPreguntaCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4, String item5){
+        return JOptionPane.showInputDialog(null, mensaje, titulo,
+                JOptionPane.QUESTION_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4, item5}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, un titulo, un mensaje y un item 
+     * en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoErrorCombo(String titulo, String mensaje, String item1){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.ERROR_MESSAGE, null, new Object[] {item1}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, un titulo, un mensaje y dos
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoErrorCombo(String titulo, String mensaje, String item1,
+            String item2){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.ERROR_MESSAGE, null, new Object[] {item1, item2},
+                item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, un titulo, un mensaje y tres
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoErrorCombo(String titulo, String mensaje, String item1,
+            String item2, String item3){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.ERROR_MESSAGE, null, new Object[] {item1, item2,
+                    item3}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, un titulo, un mensaje y
+     * cuatro item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoErrorCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.ERROR_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, un titulo, un mensaje y
+     * cinco item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoErrorCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4, String item5){
+        return JOptionPane.showInputDialog(null, mensaje, titulo,
+                JOptionPane.ERROR_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4, item5}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, un titulo, un mensaje y un item
+     * en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoAlertaCombo(String titulo, String mensaje, String item1){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.WARNING_MESSAGE, null, new Object[] {item1}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, un titulo, un mensaje y dos
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoAlertaCombo(String titulo, String mensaje, String item1,
+            String item2){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.WARNING_MESSAGE, null, new Object[] {item1, item2},
+                item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, un titulo, un mensaje y tres
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoAlertaCombo(String titulo, String mensaje, String item1,
+            String item2, String item3){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.WARNING_MESSAGE, null, new Object[] {item1, item2,
+                    item3}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, un titulo, un mensaje y cuatro
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoAlertaCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.WARNING_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, un titulo, un mensaje y cinco
+     * item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoAlertaCombo(String titulo, String mensaje, String item1,
+            String item2, String item3, String item4, String item5){
+        return JOptionPane.showInputDialog(null, mensaje, titulo,
+                JOptionPane.WARNING_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4, item5}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de notificacion, un titulo, un mensaje
+     * y un item en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoNotificacionCombo(String titulo, String mensaje, String item1){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.INFORMATION_MESSAGE, null, new Object[] {item1}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de notificacion, un titulo, un mensaje
+     * y dos item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoNotificacionCombo(String titulo, String mensaje,
+            String item1, String item2){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.INFORMATION_MESSAGE, null, new Object[] {item1, item2},
+                item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de notificacion, un titulo, un mensaje
+     * y tres item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoNotificacionCombo(String titulo, String mensaje,
+            String item1, String item2, String item3){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.INFORMATION_MESSAGE, null, new Object[] {item1, item2,
+                    item3}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de notificacion, un titulo, un mensaje
+     * y cuatro item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoNotificacionCombo(String titulo, String mensaje, 
+            String item1, String item2, String item3, String item4){
+        return JOptionPane.showInputDialog(null, mensaje, titulo, 
+                JOptionPane.INFORMATION_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4}, item1);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de notificacion, un titulo, un mensaje
+     * y cinco item's en un combo.
+     * @param titulo
+     * @param mensaje
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @return Retorna el Object del elemento seleccionado
+     */
+    public static Object ingresoNotificacionCombo(String titulo, String mensaje,
+            String item1, String item2, String item3, String item4, String item5){
+        return JOptionPane.showInputDialog(null, mensaje, titulo,
+                JOptionPane.INFORMATION_MESSAGE, null, new Object[] {item1, item2,
+                    item3, item4, item5}, item1);
     }
     
     //-----------------------PANELES DE CONFIRMACION---------------------------//

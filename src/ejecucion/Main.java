@@ -43,16 +43,43 @@ public class Main {
 //        System.out.println(Notificacion.ingresarAlerta("Titulo", "Mensaje"));
 //        System.out.println(Notificacion.ingresarInformativo("Titulo", "Mensaje"));
     
+        //Ingreso de datos por combo
+        System.out.println(Notificacion.ingresoCombo("Titulo", "Mensaje", "Seleccione"));
+        System.out.println(Notificacion.ingresoCombo("Titulo", "Mensaje", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoErrorCombo("Titulo", "Mensaje", "Seleccione"));
+        System.out.println(Notificacion.ingresoErrorCombo("Titulo", "Mensaje", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoErrorCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoErrorCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoErrorCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoAlertaCombo("Titulo", "Mensaje", "Seleccione"));
+        System.out.println(Notificacion.ingresoAlertaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoAlertaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoAlertaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoAlertaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoPreguntaCombo("Titulo", "Mensaje", "Seleccione"));
+        System.out.println(Notificacion.ingresoPreguntaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoPreguntaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoPreguntaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoPreguntaCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoNotificacionCombo("Titulo", "Mensaje", "Seleccione"));
+        System.out.println(Notificacion.ingresoNotificacionCombo("Titulo", "Mensaje", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoNotificacionCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoNotificacionCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        System.out.println(Notificacion.ingresoNotificacionCombo("Titulo", "Mensaje", "Seleccione", "Seleccione", "Seleccione", "Seleccione", "Seleccione"));
+        
         //Paneles de confirmacion
-        System.out.println(Notificacion.confirmacionCompleta("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionSINO("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionPreguntaCompleta("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionPreguntaSINO("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionErrorCompleta("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionErrorSINO("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionAlertaCompleta("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionAlertaSINO("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionNotificacionCompleta("Titulo", "Mensaje"));
-        System.out.println(Notificacion.confirmacionNotificacionSINO("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionCompleta("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionSINO("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionPreguntaCompleta("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionPreguntaSINO("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionErrorCompleta("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionErrorSINO("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionAlertaCompleta("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionAlertaSINO("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionNotificacionCompleta("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.confirmacionNotificacionSINO("Titulo", "Mensaje"));
     }
 }
