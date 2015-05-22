@@ -20,4 +20,6 @@ Bajo los siguientes terminos:
 
 * Compartir bajo la misma licencia - Si remezcla, transformar o amplia el material, debe distribuir sus contribuciones bajo la misma licencia que el original (Este material).
 
-Si desea conocer más información visite el siguiente enlace: http://creativecommons.org/licenses/by-sa/4.0
+Si desea conocer más información visite el siguiente [enlace](http://creativecommons.org/licenses/by-sa/4.0)
+
+![by-sa.png](https://bitbucket.org/repo/86ezXk/images/3338561928-by-sa.png)
