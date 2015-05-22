@@ -20,6 +20,4 @@ Bajo los siguientes terminos:
 
 * Compartir bajo la misma licencia - Si remezcla, transformar o amplia el material, debe distribuir sus contribuciones bajo la misma licencia que el original (Este material).
 
-Si desea conocer más información visite el siguiente <html><a href="http://creativecommons.org/licenses/by-sa/4.0/">enlace</a></html>
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.
+Si desea conocer más información visite el siguiente enlace: http://creativecommons.org/licenses/by-sa/4.0
