@@ -296,16 +296,37 @@ public class Notificacion{
     }
     
     //-----------------------------INGRESO DE DATOS----------------------------//
+    
+    /**
+     * Muestra el JOptionPane con un icono informativo, un mensaje sin titulo
+     * opcional sino en el mensaje por defecto.
+     * @param mensaje
+     * @return Retorna un String con la informacion ingresada en el campo de texto.
+     */
     public static String ingresar(String mensaje){
         return JOptionPane.showInputDialog(mensaje);
     }
     
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y un campo en
+     * donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un String con la informacion ingresada en el campo de texto.
+     */
     public static String ingresar(String titulo, String mensaje){
         String ventana = JOptionPane.showInputDialog(null, mensaje, titulo,
                 JOptionPane.PLAIN_MESSAGE);
         return ventana;
     }
     
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y un campo en
+     * donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un char con la informacion ingresada en el campo de texto.
+     */
     public static int ingresarChar(String titulo, String mensaje){
         String numero = JOptionPane.showInputDialog(null, mensaje, titulo,
                 JOptionPane.PLAIN_MESSAGE);
@@ -314,6 +335,13 @@ public class Notificacion{
         return (b[0]);
     }
     
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y un campo en
+     * donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un Integer con la informacion ingresada en el campo de texto.
+     */
     public static int ingresarInt(String titulo, String mensaje){
         int numero = -1;
         try{
@@ -326,6 +354,13 @@ public class Notificacion{
         return numero;
     }
     
+    /**
+     * Muestra el JOptionPane sin icono, un titulo, un mensaje y un campo en
+     * donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un Float con la informacion ingresada en el campo de texto.
+     */
     public static float ingresarFloat(String titulo, String mensaje){
         float numero = -1;
         try{
@@ -338,18 +373,46 @@ public class Notificacion{
         return numero;
     }
     
+    /**
+     * Muestra el JOptionPane con un icono de pregunta, un titulo, un mensaje y
+     * un campo en donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un String con la informacion ingresada en el campo de texto.
+     */
     public static String ingresarPregunta(String titulo, String mensaje){
         return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.QUESTION_MESSAGE);
     }
     
+    /**
+     * Muestra el JOptionPane con un icono de error, un titulo y un mensaje y
+     * un campo en donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un String con la informacion ingresada en el campo de texto.
+     */
     public static String ingresarError(String titulo, String mensaje){
         return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.ERROR_MESSAGE);
     }
     
+    /**
+     * Muestra el JOptionPane con un icono de alerta, un titulo y un mensaje y
+     * un campo en donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un String con la informacion ingresada en el campo de texto.
+     */
     public static String ingresarAlerta(String titulo, String mensaje){
         return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
     }
     
+    /**
+     * Muestra el JOptionPane con un icono informativo, un titulo y un mensaje y
+     * un campo en donde se ingresan los datos.
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un String con la informacion ingresada en el campo de texto.
+     */
     public static String ingresarInformativo(String titulo, String mensaje){
         return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
     }
