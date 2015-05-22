@@ -34,13 +34,25 @@ public class Main {
 //        System.out.println(""+api.opcionInformativoSI("Titulo", "Mensaje"));
         
         //Ingreso de datos
-        System.out.println(Notificacion.ingresar("Mensaje"));
-        System.out.println(Notificacion.ingresar("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarInt("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarFloat("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarPregunta("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarError("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarAlerta("Titulo", "Mensaje"));
-        System.out.println(Notificacion.ingresarInformativo("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresar("Mensaje"));
+//        System.out.println(Notificacion.ingresar("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarInt("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarFloat("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarPregunta("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarError("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarAlerta("Titulo", "Mensaje"));
+//        System.out.println(Notificacion.ingresarInformativo("Titulo", "Mensaje"));
+    
+        //Paneles de confirmacion
+        System.out.println(Notificacion.confirmacionCompleta("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionSINO("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionPreguntaCompleta("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionPreguntaSINO("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionErrorCompleta("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionErrorSINO("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionAlertaCompleta("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionAlertaSINO("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionNotificacionCompleta("Titulo", "Mensaje"));
+        System.out.println(Notificacion.confirmacionNotificacionSINO("Titulo", "Mensaje"));
     }
 }

@@ -66,10 +66,9 @@ public class Notificacion{
      * Retorna 2 si selecciona "Cancelar"
      */
     public static int opcionCompleta(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, new Object[]{"Si","No", "Cancelar"}, "Si");
-        return opcion;
     }
     
     /**
@@ -82,10 +81,9 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      */
     public static int opcionSINO(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
-        return opcion;
     }
     
     /**
@@ -97,10 +95,9 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      */
     public static int opcionSI(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
-        return opcion;
     }
     
     /**
@@ -114,10 +111,9 @@ public class Notificacion{
      * Retorna 2 si selecciona "Cancelar"
      */
     public static int opcionPreguntaCompleta(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
-        return opcion;
     }
     
     /**
@@ -130,10 +126,9 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      */
     public static int opcionPreguntaSINO(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
-        return opcion;
     }
     
     /**
@@ -145,10 +140,9 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      */
     public static int opcionPreguntaSI(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
-        return opcion;
     }
     
     /**
@@ -162,10 +156,9 @@ public class Notificacion{
      * Retorna 2 si selecciona "Cancelar"
      */
     public static int opcionErrorCompleta(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
-        return opcion;
     }
     
     /**
@@ -178,10 +171,9 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      */
     public static int opcionErrorSINO(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
-        return opcion;
     }
     
     /**
@@ -193,10 +185,9 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      */
     public static int opcionErrorSI(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.ERROR_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
-        return opcion;
     }
     
     /**
@@ -210,10 +201,9 @@ public class Notificacion{
      * Retorna 2 si selecciona "Cancelar"
      */
     public static int opcionAlertaCompleta(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
-        return opcion;
     }
     
     /**
@@ -226,10 +216,9 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      */
     public static int opcionAlertaSINO(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
-        return opcion;
     }
     
     /**
@@ -241,10 +230,9 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      */
     public static int opcionAlertaSI(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
-        return opcion;
     }
     
     /**
@@ -258,10 +246,9 @@ public class Notificacion{
      * Retorna 2 si selecciona "Cancelar"
      */
     public static int opcionInformativoCompleta(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, new Object[]{"Si","No","Cancelar"}, "Si");
-        return opcion;
     }
     
     /**
@@ -274,10 +261,9 @@ public class Notificacion{
      * Retorna 1 si selecciona "No"
      */
     public static int opcionInformativoSINO(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, new Object[]{"Si","No"}, "Si");
-        return opcion;
     }
     
     /**
@@ -289,10 +275,9 @@ public class Notificacion{
      * Retorna 0 si selecciona "Si"
      */
     public static int opcionInformativoSI(String titulo, String mensaje){
-        int opcion = JOptionPane.showOptionDialog(null, mensaje, titulo,
+        return JOptionPane.showOptionDialog(null, mensaje, titulo,
                 JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, new Object[]{"Si"}, "Si");
-        return opcion;
     }
     
     //-----------------------------INGRESO DE DATOS----------------------------//
@@ -415,5 +400,152 @@ public class Notificacion{
      */
     public static String ingresarInformativo(String titulo, String mensaje){
         return JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    //-----------------------PANELES DE CONFIRMACION---------------------------//
+    
+    /**
+     * Muestra el JOptionPane sin icono, con un titulo, un mensaje y tres opciones
+     * de eleccion: "Si", "No" y "Cancelar"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retorna 1 si selecciona "No"
+     * Retorna 2 si selecciona "Cancelar"
+     */
+    public static int confirmacionCompleta(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo, 
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane sin icono, con un titulo, un mensaje y dos opciones
+     * de eleccion: "Si" y "No"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retirna 1 si selecciona "No"
+     */
+    public static int confirmacionSINO(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de pregunta, con un titulo, un mensaje
+     * y tres opciones de eleccion: "Si", "No" y "Cancelar"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retorna 1 si selecciona "No"
+     * Retorna 2 si selecciona "Cancelar"
+     */
+    public static int confirmacionPreguntaCompleta(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de pregunta, con un titulo, un mensaje
+     * y dos opciones de eleccion: "Si" y "No"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retirna 1 si selecciona "No"
+     */
+    public static int confirmacionPreguntaSINO(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, con un titulo, un mensaje y
+     * tres opciones de eleccion: "Si", "No" y "Cancelar"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retorna 1 si selecciona "No"
+     * Retorna 2 si selecciona "Cancelar"
+     */
+    public static int confirmacionErrorCompleta(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de error, con un titulo, un mensaje y
+     * dos opciones de eleccion: "Si" y "No"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retirna 1 si selecciona "No"
+     */
+    public static int confirmacionErrorSINO(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, con un titulo, un mensaje
+     * y tres opciones de eleccion: "Si", "No" y "Cancelar"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retorna 1 si selecciona "No"
+     * Retorna 2 si selecciona "Cancelar"
+     */
+    public static int confirmacionAlertaCompleta(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de alerta, con un titulo, un mensaje
+     * y dos opciones de eleccion: "Si" y "No"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retirna 1 si selecciona "No"
+     */
+    public static int confirmacionAlertaSINO(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de notificacion, con un titulo, un
+     * mensaje y tres opciones de eleccion: "Si", "No" y "Cancelar"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retorna 1 si selecciona "No"
+     * Retorna 2 si selecciona "Cancelar"
+     */
+    public static int confirmacionNotificacionCompleta(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    /**
+     * Muestra el JOptionPane con un icono de notificacion, con un titulo, un
+     * mensaje y dos opciones de eleccion: "Si" y "No"
+     * @param titulo
+     * @param mensaje
+     * @return Retorna un entero segun la opcion elegida:
+     * Retorna 0 si selecciona "Si"
+     * Retirna 1 si selecciona "No"
+     */
+    public static int confirmacionNotificacionSINO(String titulo, String mensaje){
+        return JOptionPane.showConfirmDialog(null, mensaje, titulo,
+                JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }
 }
