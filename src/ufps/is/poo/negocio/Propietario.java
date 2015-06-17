@@ -21,5 +21,57 @@ package ufps.is.poo.negocio;
  * @author Emanuel Martinez Pinzon
  */
 public class Propietario{
-    
+    private String nombre;
+    private String cc;
+    private String direccion;
+    private String ciudad;
+    private int telefono;
+
+    public Propietario(String nombre, String cc, String direccion, String ciudad, int telefono) {
+        this.nombre = nombre;
+        this.cc = cc;
+        this.direccion = direccion;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCc() {
+        return cc;
+    }
+
+    public void setCc(String cc) {
+        this.cc = cc;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
 }

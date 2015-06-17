@@ -21,5 +21,37 @@ package ufps.is.poo.negocio;
  * @author Emanuel Martinez Pinzon
  */
 public class Premio{
-    
+    private int anio;
+    private int puesto;
+    private String evento;
+
+    public Premio(int anio, int puesto, String evento) {
+        this.anio = anio;
+        this.puesto = puesto;
+        this.evento = evento;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public int getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(int puesto) {
+        this.puesto = puesto;
+    }
+
+    public String getEvento() {
+        return evento;
+    }
+
+    public void setEvento(String evento) {
+        this.evento = evento;
+    }
 }
