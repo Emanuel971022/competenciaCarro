@@ -16,6 +16,9 @@
  */
 package ufps.is.poo.negocio;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  *
  * @author Emanuel Martinez Pinzon
@@ -24,11 +27,13 @@ public class Carro{
     private String placa;
     private String marca;
     private int modelo;
+    private HashMap<String, ArrayList<Propietario>> propietarios;
 
     public Carro(String placa, String marca, int modelo) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
+        this.propietarios = new HashMap<>();
     }
 
     public String getPlaca() {
