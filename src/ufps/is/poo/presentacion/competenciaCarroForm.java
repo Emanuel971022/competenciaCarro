@@ -1,4 +1,4 @@
-package ufps.is.poo.vista;
+package ufps.is.poo.presentacion;
 
 import ufps.is.poo.util.Notificacion;
 import ufps.is.poo.negocio.Competencia;
