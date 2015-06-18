@@ -40,7 +40,7 @@ public class Notificacion{
     public static void alertaError(String titulo, String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.ERROR_MESSAGE);
     }
-    
+        
     /**
      * Muestra el JOptionPane con un icono de alerta, un titulo y un mensaje.
      * @param titulo

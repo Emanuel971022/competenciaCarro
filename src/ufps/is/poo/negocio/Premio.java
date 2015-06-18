@@ -54,4 +54,11 @@ public class Premio{
     public void setEvento(String evento) {
         this.evento = evento;
     }
+    
+    @Override
+    public String toString(){
+        return "Año de victoria: "+getAnio()
+            +"\nPuesto: "+getPuesto()
+            +"\nEvento: "+getEvento()+"\n";
+    }
 }

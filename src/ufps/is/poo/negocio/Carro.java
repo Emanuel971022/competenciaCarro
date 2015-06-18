@@ -18,6 +18,7 @@ package ufps.is.poo.negocio;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  *
@@ -27,13 +28,17 @@ public class Carro{
     private String placa;
     private String marca;
     private int modelo;
-    private HashMap<String, ArrayList<Propietario>> propietarios;
+    private HashMap<Integer, ArrayList<Propietario>> propietarios;
 
     public Carro(String placa, String marca, int modelo) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.propietarios = new HashMap<>();
+    }
+
+    public Carro(String placa) {
+        this.placa = placa;
     }
 
     public String getPlaca() {
@@ -58,5 +63,25 @@ public class Carro{
 
     public void setModelo(int modelo) {
         this.modelo = modelo;
+    }
+    
+    @Override
+    public String toString(){
+        return "Placa: "+getPlaca()
+            +"\nMarca: "+getMarca()
+            +"\nModelo: "+getModelo()+"\n";
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.placa);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        Carro c = (Carro) obj;
+        return c.getPlaca().equals(getPlaca());
     }
 }

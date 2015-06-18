@@ -1,5 +1,7 @@
 package ufps.is.poo.presentacion;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ufps.is.poo.util.Notificacion;
 import ufps.is.poo.negocio.Competencia;
 
@@ -49,6 +51,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         cmbPlacaMostrarPremio = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Competencia de Carros");
+        setResizable(false);
 
         jLabel1.setText("Placa: ");
 
@@ -258,7 +262,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         boolean val = competencia.agregarCarro(placa, marca, Integer.parseInt(modelo));
         if(val){
             Notificacion.alertaInformativo("Sistema", "Registro exitoso");
- //           llenarComboPlaca();
+            llenarComboPlaca();
         }else
             Notificacion.alertaError("Error", "No se ha podido realizar el registro");
         
@@ -283,12 +287,23 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             return;
         }
         
-        boolean val = competencia.agregarPremioCarro(placa, Integer.parseInt(anio),
-                Integer.parseInt(puesto), evento);
+        boolean val;
+        try{
+            val = competencia.registrarPremioACarro(placa, Integer.parseInt(anio),
+                    Integer.parseInt(puesto), evento);
+        }catch(Exception ex) {
+            Notificacion.alertaError("Error", "Ya existe un premio de ese evento con esa misma fecha");
+            return;
+        }
+        
         if(val)
             Notificacion.alertaInformativo("Sistema", "Premio agregado con exito");
         else
             Notificacion.alertaError("Error", "Ocurrio un error al realizar el registro");
+        
+        txtAñoAñadirPremio.setText("");
+        txtEventoAñadirPremio.setText("");
+        txtPuestoAñadirPremio.setText("");
     }//GEN-LAST:event_cmdAñadirPremioActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
@@ -301,13 +316,13 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private void cmdMostrarPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarPremiosActionPerformed
         String placa = cmbPlacaMostrarPremio.getSelectedItem().toString();
         
-//        txtAInfo.setText("Premios obtenidos por el carro - Placa: "+placa+"\n"
-//                +competencia.imprimirPremiosCarro(placa));
+        String mens = competencia.imprimirPremiosCarro(placa);
+        txtAInfo.setText("Premios obtenidos por el carro - Placa: "+placa+"\n"+mens);
     }//GEN-LAST:event_cmdMostrarPremiosActionPerformed
 
     public static boolean isNumeric(String num){
         try{
-            int num1 = Integer.parseInt(num);
+            Integer.parseInt(num);
         }catch(NumberFormatException nfe){
             return false;
         }
@@ -315,15 +330,15 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         return true;
     }
     
-//    public void llenarComboPlaca(){
-//        String placa[] = competencia.concatenarPlacasCarros().split("~");
-//        cmbCarroAñadirPremio.removeAllItems();
-//        cmbPlacaMostrarPremio.removeAllItems();
-//        for(String x: placa){
-//            cmbCarroAñadirPremio.addItem(x);
-//            cmbPlacaMostrarPremio.addItem(x);
-//        }
-//    }
+    public void llenarComboPlaca(){
+        String placa[] = competencia.concatenarplacas().split("~");
+        cmbCarroAñadirPremio.removeAllItems();
+        cmbPlacaMostrarPremio.removeAllItems();
+        for(String x: placa){
+            cmbCarroAñadirPremio.addItem(x);
+            cmbPlacaMostrarPremio.addItem(x);
+        }
+    }
     
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

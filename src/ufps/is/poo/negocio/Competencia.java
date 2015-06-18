@@ -18,34 +18,92 @@ package ufps.is.poo.negocio;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
  * @author Emanuel Martinez Pinzon
  */
 public class Competencia{
-    private HashMap<Carro, ArrayList<Premio>> carros;
+    private HashMap<Carro, ArrayList<Premio>> copas;    
     public Competencia(){
-        this.carros = new HashMap<>();
+        this.copas = new HashMap<>();
     }
     
-    public boolean agregarCarro(String marca, String placa, int modelo){
-        Carro c = new Carro(marca, placa, modelo);
-        boolean exist = carros.containsKey(c);
-        
-        if(!exist){
-            carros.put(c, new ArrayList<>());
+    //-------------------------REQUERIMIENTOS FUNCIONALES----------------------//
+    public boolean agregarCarro(String placa, String marca, int modelo){
+        Carro c = new Carro(placa, marca, modelo);
+        if(!copas.containsKey(c)){
+            copas.put(c, new ArrayList<Premio>());
             return true;
         }
         
         return false;
     }
-
-    public boolean agregarPremioCarro(String placa, int parseInt, int parseInt0, String evento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public boolean registrarPremioACarro(String placa, int anio, int puesto, String evento) throws Exception{
+        Carro p = new Carro(placa);
+        ArrayList<Premio> victorias = copas.get(p);
+        if(victorias!=null){
+            for(Premio x: victorias){
+                if(x.getAnio()==anio && x.getEvento().equalsIgnoreCase(evento)){
+                    throw new Exception("Doble premio");
+                }
+            }
+            
+            victorias.add(new Premio(anio, puesto, evento));
+            return true;
+        }
+        
+        return false;
     }
-
-    public String imprimirCarrosParaUnRango(String rango) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public String imprimirCarrosParaUnRango(String rango){
+        String carros = "";
+        String range[] = rango.split("-");
+        
+        Iterator<Carro> iterator = copas.keySet().iterator();
+        while(iterator.hasNext()){
+            Carro c = iterator.next();
+            try{
+                if(c.getModelo()<=Integer.parseInt(range[0]) &&
+                        c.getModelo()>=Integer.parseInt(range[1]))
+                    carros += "\n"+c.toString();
+            }catch(NumberFormatException nfe){
+                if(c.getModelo()<=Integer.parseInt(range[0]))
+                    carros += "\n"+c.toString();
+            }
+        }
+        
+        return carros;
+    }
+    
+    public String imprimirPremiosCarro(String placa){
+        String premios = "";
+        
+        Iterator<Carro> iterator = copas.keySet().iterator();
+        while(iterator.hasNext()){
+            Carro c = iterator.next();
+            if(c.getPlaca().equalsIgnoreCase(placa)){
+                ArrayList<Premio> prem = copas.get(c);
+                for(Premio x: prem)
+                    premios += "\n"+x.toString();
+            }
+        }
+        
+        return premios;
+    }
+    
+    //-----------------------REQUERIMIENTOS OPERACIONALES----------------------//
+    public String concatenarplacas(){
+        String placas = "";
+        
+        Iterator<Carro> iterator = copas.keySet().iterator();
+        while(iterator.hasNext()){
+            Carro c = iterator.next();
+            placas += c.getPlaca()+"~";
+        }
+        
+        return placas;
     }
 }
