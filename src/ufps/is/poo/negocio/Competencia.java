@@ -45,11 +45,9 @@ public class Competencia{
         Carro p = new Carro(placa);
         ArrayList<Premio> victorias = copas.get(p);
         if(victorias!=null){
-            for(Premio x: victorias){
-                if(x.getAnio()==anio && x.getEvento().equalsIgnoreCase(evento)){
+            for(Premio x: victorias)
+                if(x.getAnio()==anio && x.getEvento().equalsIgnoreCase(evento))
                     throw new Exception("Doble premio");
-                }
-            }
             
             victorias.add(new Premio(anio, puesto, evento));
             return true;
@@ -92,6 +90,17 @@ public class Competencia{
         }
         
         return premios;
+    }
+    
+    public boolean agregarPropietario(String placa, int año, String nombre, String cc,
+            String direccion, String ciudad, int telefono){
+        Carro car = new Carro(placa);
+        
+        for(Carro x: copas.keySet())
+            if(x.equals(car))
+                return x.agregarPropietario(año, nombre, cc, direccion, ciudad, telefono);
+         
+        return false;
     }
     
     //-----------------------REQUERIMIENTOS OPERACIONALES----------------------//

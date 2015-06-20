@@ -37,6 +37,21 @@ public class Carro{
         this.propietarios = new HashMap<>();
     }
 
+    //--------------------REQUERIMIENTOS FUNCIONALES---------------------------//
+    public boolean agregarPropietario(int año, String nombre, String cc,
+            String direccion, String ciudad, int telefono){
+        if(!propietarios.containsKey(año)){
+            propietarios.put(año, new ArrayList<Propietario>());
+            ArrayList<Propietario> dueños = propietarios.get(año);
+            if(dueños!=null){
+                dueños.add(new Propietario(nombre, cc, direccion, ciudad, telefono));
+                return true;
+            }
+        }
+        
+        return false;
+    }    
+    
     public Carro(String placa) {
         this.placa = placa;
     }
