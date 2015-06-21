@@ -74,4 +74,13 @@ public class Propietario{
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+    
+    @Override
+    public String toString(){
+        return "Nombre: "+getNombre()
+                +"\nCC: "+getCc()
+                +"\nDirección: "+getDireccion()
+                +"\nCiudad: "+getCiudad()
+                +"\nTelefono: "+getTelefono()+"\n";
+    }
 }

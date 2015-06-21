@@ -40,17 +40,29 @@ public class Carro{
     //--------------------REQUERIMIENTOS FUNCIONALES---------------------------//
     public boolean agregarPropietario(int año, String nombre, String cc,
             String direccion, String ciudad, int telefono){
-        if(!propietarios.containsKey(año)){
+        if(!propietarios.containsKey(año))
             propietarios.put(año, new ArrayList<Propietario>());
-            ArrayList<Propietario> dueños = propietarios.get(año);
-            if(dueños!=null){
-                dueños.add(new Propietario(nombre, cc, direccion, ciudad, telefono));
-                return true;
-            }
+        
+        ArrayList<Propietario> dueños = propietarios.get(año);
+        if(dueños!=null){
+            dueños.add(new Propietario(nombre, cc, direccion, ciudad, telefono));
+            return true;
         }
         
         return false;
-    }    
+    }
+    
+    public String imprimirPropietariosParaUnAño(int año){
+        String propietario = "";
+               
+        if(propietarios.containsKey(año)){
+            ArrayList<Propietario> prop = propietarios.get(año);
+            for(Propietario x: prop)
+                propietario += "\n"+x.toString();
+        }
+            
+        return propietario;
+    }
     
     public Carro(String placa) {
         this.placa = placa;

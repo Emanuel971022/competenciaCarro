@@ -103,6 +103,16 @@ public class Competencia{
         return false;
     }
     
+    public String imprimirPropietarios(String placa, int año){
+        Carro car = new Carro(placa);
+        
+        for(Carro x: copas.keySet())
+            if(x.equals(car))
+                return x.imprimirPropietariosParaUnAño(año);
+        
+        return "No hay propietarios registrados de este vehiculo en ese año";
+    }
+    
     //-----------------------REQUERIMIENTOS OPERACIONALES----------------------//
     public String concatenarplacas(){
         String placas = "";
