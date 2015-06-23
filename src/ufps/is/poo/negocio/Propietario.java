@@ -25,9 +25,10 @@ public class Propietario{
     private String cc;
     private String direccion;
     private String ciudad;
-    private int telefono;
+    private String telefono;
 
-    public Propietario(String nombre, String cc, String direccion, String ciudad, int telefono) {
+    public Propietario(String nombre, String cc, String direccion, String ciudad,
+            String telefono) {
         this.nombre = nombre;
         this.cc = cc;
         this.direccion = direccion;
@@ -67,11 +68,11 @@ public class Propietario{
         this.ciudad = ciudad;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     

@@ -93,7 +93,7 @@ public class Competencia{
     }
     
     public boolean agregarPropietario(String placa, int año, String nombre, String cc,
-            String direccion, String ciudad, int telefono){
+            String direccion, String ciudad, String telefono) throws Exception{
         Carro car = new Carro(placa);
         
         for(Carro x: copas.keySet())

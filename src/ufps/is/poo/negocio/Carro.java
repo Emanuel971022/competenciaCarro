@@ -39,9 +39,12 @@ public class Carro{
 
     //--------------------REQUERIMIENTOS FUNCIONALES---------------------------//
     public boolean agregarPropietario(int año, String nombre, String cc,
-            String direccion, String ciudad, int telefono){
+            String direccion, String ciudad, String telefono) throws Exception{
         if(!propietarios.containsKey(año))
             propietarios.put(año, new ArrayList<Propietario>());
+        
+        if(validarExistenciaPropietario(año, cc))
+            throw new Exception("Doble propietario");
         
         ArrayList<Propietario> dueños = propietarios.get(año);
         if(dueños!=null){
@@ -62,6 +65,17 @@ public class Carro{
         }
             
         return propietario;
+    }
+    
+    //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
+    private boolean validarExistenciaPropietario(int año, String cc){
+        ArrayList<Propietario> propietario = propietarios.get(año);
+        
+        for(Propietario x: propietario)
+            if(x.getCc().equalsIgnoreCase(cc))
+                return true;
+        
+        return false;
     }
     
     public Carro(String placa) {
