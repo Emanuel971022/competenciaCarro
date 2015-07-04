@@ -73,11 +73,12 @@ public class Carro{
     }
     
     public String imprimirInfoBasicPropietariosParaUnAño(int año){
-        String propietario = "";
+        String propietario = "Ese carro no registra propietarios";
         
         ArrayList<Propietario> prop = propietarios.get(año);
-        for(Propietario x: prop)
-            propietario += "\n"+x.infoBasic();
+        if(prop!=null)
+            for(Propietario x: prop)
+                propietario += "\n"+x.infoBasic();
         
         return propietario;
     }

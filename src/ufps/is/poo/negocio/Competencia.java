@@ -33,6 +33,13 @@ public class Competencia{
     }
     
     //-------------------------REQUERIMIENTOS FUNCIONALES----------------------//
+    /**
+     * Añade un carro como llave al HashMap copas
+     * @param placa
+     * @param marca
+     * @param modelo
+     * @return retorna true dado el caso añada el carro
+     */
     public boolean agregarCarro(String placa, String marca, int modelo){
         Carro c = new Carro(placa, marca, modelo);
         if(!copas.containsKey(c)){
@@ -43,12 +50,21 @@ public class Competencia{
         return false;
     }
     
+    /**
+     * Añade un objeto al ArrayList de premios de un carro
+     * @param placa
+     * @param anio
+     * @param puesto
+     * @param evento
+     * @return Retorna true si añade el carro
+     * @throws Exception 
+     */
     public boolean registrarPremioACarro(String placa, int anio, int puesto, String evento) throws Exception{
         Carro c = new Carro(placa);
         ArrayList<Premio> victorias = copas.get(c);
         if(victorias!=null){
             for(Premio x: victorias)
-                if(x.getAnio()==anio && x.getPuesto()==puesto && x.getEvento().equalsIgnoreCase(evento))
+                if(x.getAnio()==anio && x.getEvento().equalsIgnoreCase(evento))
                     throw new Exception("Doble premio");
              
             Collection<ArrayList<Premio>> prem = copas.values();
@@ -60,15 +76,6 @@ public class Competencia{
                         throw new Exception("Doble premio");
             }
             
-//            Iterator it = copas.entrySet().iterator();
-//            while(it.hasNext()){
-//                Map.Entry e = (Map.Entry) it.next();
-//                ArrayList<Premio> pp = (ArrayList) e.getValue();
-//                for(Premio x: pp)
-//                    if(x.getAnio()==anio && x.getPuesto()==puesto && x.getEvento().equalsIgnoreCase(evento))
-//                        throw new Exception("Doble premio");
-//            }
-            
             victorias.add(new Premio(anio, puesto, evento));
             return true;
         }
@@ -76,6 +83,11 @@ public class Competencia{
         return false;
     }
     
+    /**
+     * Concatena y muestra los carros registrados en un rango de fechas
+     * @param rango
+     * @return retorna los carros encontradas en un rango.
+     */
     public String imprimirCarrosParaUnRango(String rango){
         String carros = "";
         String range[] = rango.split("-");
@@ -96,6 +108,11 @@ public class Competencia{
         return carros;
     }
     
+    /**
+     * Busca y muestra los premios de un carro
+     * @param placa
+     * @return retorna los premios del carro.
+     */
     public String imprimirPremiosCarro(String placa){
         String premios = "";
         
@@ -112,6 +129,18 @@ public class Competencia{
         return premios;
     }
     
+    /**
+     * Añade un propietario a un carro para un año
+     * @param placa
+     * @param año
+     * @param nombre
+     * @param cc
+     * @param direccion
+     * @param ciudad
+     * @param telefono
+     * @return retorna true si se añade correctamente el propietario
+     * @throws Exception 
+     */
     public boolean agregarPropietario(String placa, int año, String nombre, String cc,
             String direccion, String ciudad, String telefono) throws Exception{
         Carro car = new Carro(placa);
@@ -123,6 +152,12 @@ public class Competencia{
         return false;
     }
     
+    /**
+     * Muestra los propietarios registrados en una placa y un año
+     * @param placa
+     * @param año
+     * @return Retorna un String con los propietarios
+     */
     public String imprimirPropietarios(String placa, int año){
         Carro car = new Carro(placa);
         
@@ -153,14 +188,18 @@ public class Competencia{
         revisa que un carro no pueda registrar dos premios con el mismo año y
         evento, pero yo no programé que le permitiera verificar en los demás
         carros esta información.
+        
+        Surge un NullPointer cuando existe un carro con un premio del evento en
+        el año que se esta consultando y no existe ningún propietario registrado.
+        Esto lo soluciono mirando si el ArrayList no esta vacio.
+        
+        Cuando existen dos o más carros que tienen el mismo Premio para un evento
+        en un año -Esto claro, con un puesto diferente- los resultados se duplican.
+        Pienso hacer debug del metodo para ver como se comporta el metodo en este
+        caso.
         */
         
         return ganadores;
-    }
-    
-    
-    public String PPpropietario(String cc){
-        return "";
     }
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
             
@@ -168,8 +207,6 @@ public class Competencia{
     public String propietario(String cc){
         return "";
     }
-    
-
     
     /**
      * Este metodo retornara un String con toda la información del HashMap
@@ -188,6 +225,10 @@ public class Competencia{
     //-----------------------REQUERIMIENTOS PARA VACACIONES--------------------//
         
     //-----------------------REQUERIMIENTOS OPERACIONALES----------------------//
+    /**
+     * Concatena las placas de todos los carros registrados.
+     * @return Retorna un String placa~placa~placa con los carros registrados
+     */
     public String concatenarplacas(){
         String placas = "";
         
@@ -200,6 +241,10 @@ public class Competencia{
         return placas;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String concatenarPropietario(){
         for(Carro x: copas.keySet())
             return x.concatenarPropietarios();
