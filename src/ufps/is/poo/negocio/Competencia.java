@@ -18,6 +18,7 @@ package ufps.is.poo.negocio;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 
 /**
@@ -113,6 +114,28 @@ public class Competencia{
         return "No hay propietarios registrados de este vehiculo en ese año";
     }
     
+    //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
+    public String propietarioParaUnaVictoria(String evento, int año){
+        Collection<ArrayList<Premio>> premio = copas.values();
+        String ganadores = "";
+        
+        Iterator<ArrayList<Premio>> it = premio.iterator();
+        while(it.hasNext()){
+            ArrayList<Premio> p = it.next();
+            for(Premio x: p)
+               if(x.getEvento().equalsIgnoreCase(evento))
+                   for(Carro y: copas.keySet())
+                       ganadores += y.imprimirInfoBasicPropietariosParaUnAño(año);
+        }
+            
+        return ganadores;
+    }
+    
+    public String propietario(String cc){
+        return "";
+    }
+    //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
+            
     //-----------------------REQUERIMIENTOS OPERACIONALES----------------------//
     public String concatenarplacas(){
         String placas = "";
@@ -124,5 +147,12 @@ public class Competencia{
         }
         
         return placas;
+    }
+    
+    public String concatenarPropietario(){
+        for(Carro x: copas.keySet())
+            return x.concatenarPropietarios();
+        
+        return "";
     }
 }

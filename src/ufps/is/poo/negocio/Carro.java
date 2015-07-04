@@ -17,6 +17,7 @@
 package ufps.is.poo.negocio;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -36,7 +37,11 @@ public class Carro{
         this.modelo = modelo;
         this.propietarios = new HashMap<>();
     }
-
+    
+    public Carro(String placa) {
+        this.placa = placa;
+    }
+    
     //--------------------REQUERIMIENTOS FUNCIONALES---------------------------//
     public boolean agregarPropietario(int año, String nombre, String cc,
             String direccion, String ciudad, String telefono) throws Exception{
@@ -67,6 +72,16 @@ public class Carro{
         return propietario;
     }
     
+    public String imprimirInfoBasicPropietariosParaUnAño(int año){
+        String propietario = "";
+        
+        ArrayList<Propietario> prop = propietarios.get(año);
+        for(Propietario x: prop)
+            propietario += "\n"+x.infoBasic();
+        
+        return propietario;
+    }
+    
     //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
     private boolean validarExistenciaPropietario(int año, String cc){
         ArrayList<Propietario> propietario = propietarios.get(año);
@@ -78,8 +93,14 @@ public class Carro{
         return false;
     }
     
-    public Carro(String placa) {
-        this.placa = placa;
+    public String concatenarPropietarios(){
+        Collection<ArrayList<Propietario>> prop = propietarios.values();
+        String nombres = "";
+        
+//        for(ArrayList<Propietario> x: prop)
+//            
+        
+        return nombres;
     }
 
     public String getPlaca() {

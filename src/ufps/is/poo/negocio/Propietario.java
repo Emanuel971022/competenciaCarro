@@ -76,6 +76,10 @@ public class Propietario{
         this.telefono = telefono;
     }
     
+    public String infoBasic(){
+        return "Nombre: "+getNombre()+" CC: "+getCc();
+    }
+    
     @Override
     public String toString(){
         return "Nombre: "+getNombre()

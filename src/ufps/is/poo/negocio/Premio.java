@@ -16,6 +16,8 @@
  */
 package ufps.is.poo.negocio;
 
+import java.util.Objects;
+
 /**
  *
  * @author Emanuel Martinez Pinzon
@@ -25,6 +27,10 @@ public class Premio{
     private int puesto;
     private String evento;
 
+    public Premio(String evento){
+        this.evento = evento;
+    }
+    
     public Premio(int anio, int puesto, String evento) {
         this.anio = anio;
         this.puesto = puesto;
@@ -60,5 +66,18 @@ public class Premio{
         return "Año de victoria: "+getAnio()
             +"\nPuesto: "+getPuesto()
             +"\nEvento: "+getEvento()+"\n";
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.evento);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        Carro c = (Carro) obj;
+        return c.getPlaca().equals(getEvento());
     }
 }
