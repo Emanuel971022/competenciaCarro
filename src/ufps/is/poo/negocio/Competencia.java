@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  *
@@ -43,12 +44,30 @@ public class Competencia{
     }
     
     public boolean registrarPremioACarro(String placa, int anio, int puesto, String evento) throws Exception{
-        Carro p = new Carro(placa);
-        ArrayList<Premio> victorias = copas.get(p);
+        Carro c = new Carro(placa);
+        ArrayList<Premio> victorias = copas.get(c);
         if(victorias!=null){
             for(Premio x: victorias)
-                if(x.getAnio()==anio && x.getEvento().equalsIgnoreCase(evento))
+                if(x.getAnio()==anio && x.getPuesto()==puesto && x.getEvento().equalsIgnoreCase(evento))
                     throw new Exception("Doble premio");
+             
+            Collection<ArrayList<Premio>> prem = copas.values();
+            Iterator <ArrayList<Premio>> it = prem.iterator();
+            while(it.hasNext()){
+                ArrayList<Premio> p = it.next();
+                for(Premio x: p)
+                    if(x.getAnio()==anio && x.getPuesto()==puesto && x.getEvento().equalsIgnoreCase(evento))
+                        throw new Exception("Doble premio");
+            }
+            
+//            Iterator it = copas.entrySet().iterator();
+//            while(it.hasNext()){
+//                Map.Entry e = (Map.Entry) it.next();
+//                ArrayList<Premio> pp = (ArrayList) e.getValue();
+//                for(Premio x: pp)
+//                    if(x.getAnio()==anio && x.getPuesto()==puesto && x.getEvento().equalsIgnoreCase(evento))
+//                        throw new Exception("Doble premio");
+//            }
             
             victorias.add(new Premio(anio, puesto, evento));
             return true;
@@ -128,14 +147,46 @@ public class Competencia{
                        ganadores += y.imprimirInfoBasicPropietariosParaUnAño(año);
         }
             
+        /*
+        El problema de repetir nombres de propietarios se da cuando dos carros
+        diferentes tienen el mismo evento y el mismo año, el sistema por defecto
+        revisa que un carro no pueda registrar dos premios con el mismo año y
+        evento, pero yo no programé que le permitiera verificar en los demás
+        carros esta información.
+        */
+        
         return ganadores;
     }
     
-    public String propietario(String cc){
+    
+    public String PPpropietario(String cc){
         return "";
     }
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
             
+    //-----------------------REQUERIMIENTOS PARA VACACIONES--------------------//
+    public String propietario(String cc){
+        return "";
+    }
+    
+
+    
+    /**
+     * Este metodo retornara un String con toda la información del HashMap
+     * @return muestra los toString de las llaves y de los objetos del HashMap
+     */
+    public String recorrerPremios(){
+        String mensaje = "";
+        
+        Iterator it = copas.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry e = (Map.Entry)it.next();
+            mensaje += e.getKey()+" "+e.getValue();
+        }
+        return mensaje;
+    }
+    //-----------------------REQUERIMIENTOS PARA VACACIONES--------------------//
+        
     //-----------------------REQUERIMIENTOS OPERACIONALES----------------------//
     public String concatenarplacas(){
         String placas = "";
