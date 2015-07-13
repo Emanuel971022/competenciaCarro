@@ -174,20 +174,19 @@ public class Competencia{
         String ganadores = "";
         
         Iterator<ArrayList<Premio>> it = premio.iterator();
-        while(it.hasNext()){
             ArrayList<Premio> p = it.next();
             for(Premio x: p)
                if(x.getEvento().equalsIgnoreCase(evento))
                    for(Carro y: copas.keySet())
                        ganadores += y.imprimirInfoBasicPropietariosParaUnAño(año);
-        }
             
         /*
         El problema de repetir nombres de propietarios se da cuando dos carros
         diferentes tienen el mismo evento y el mismo año, el sistema por defecto
         revisa que un carro no pueda registrar dos premios con el mismo año y
         evento, pero yo no programé que le permitiera verificar en los demás
-        carros esta información.
+        carros esta información. //YA SOLUCIONÉ ESTE PROBLEMA, SIMPLEMENTE TENÍA
+            QUE QUITAR EL while(it.hashNext) PORQUE ESA ERA LA CAUSA DE MI PROBLEMA.
         
         Surge un NullPointer cuando existe un carro con un premio del evento en
         el año que se esta consultando y no existe ningún propietario registrado.
@@ -250,5 +249,13 @@ public class Competencia{
             return x.concatenarPropietarios();
         
         return "";
+    }
+    
+    public int cantidadPropietarios(String placa){
+        for(Carro x: copas.keySet())
+            if(x.getPlaca().equalsIgnoreCase(placa))
+                return x.cantidadPropietarios();
+        
+        return 0;
     }
 }

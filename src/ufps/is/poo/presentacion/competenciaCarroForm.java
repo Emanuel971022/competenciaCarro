@@ -590,7 +590,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             val = competencia.registrarPremioACarro(placa, Integer.parseInt(anio),
                     Integer.parseInt(puesto), evento);
         }catch(Exception ex) {
-            Notificacion.alertaError("Error", "Ya existe un premio de ese evento con esa misma fecha"+ex);
+            Notificacion.alertaError("Error", "Ya existe un premio de ese evento con esa misma fecha");
             return;
         }
         
@@ -672,6 +672,11 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private void ConsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsuActionPerformed
         String evento = txtEvento.getText();
         String año = txtAño.getText();
+        
+        if(evento.isEmpty() || año.isEmpty()){
+            Notificacion.alertaError("Debe ingresar todos los datos", "Sistema");
+            return;
+        }
         
         String info = competencia.propietarioParaUnaVictoria(evento, Integer.parseInt(año));
         

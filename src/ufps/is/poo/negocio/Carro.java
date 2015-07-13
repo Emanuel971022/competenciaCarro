@@ -73,7 +73,7 @@ public class Carro{
     }
     
     public String imprimirInfoBasicPropietariosParaUnAño(int año){
-        String propietario = "Ese carro no registra propietarios";
+        String propietario = "";
         
         ArrayList<Propietario> prop = propietarios.get(año);
         if(prop!=null)
@@ -104,6 +104,10 @@ public class Carro{
         return nombres;
     }
 
+    public int cantidadPropietarios(){
+        return propietarios.size();
+    }
+    
     public String getPlaca() {
         return placa;
     }
