@@ -84,10 +84,10 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         Consu = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        cmdPremiosPropietario = new javax.swing.JButton();
         txtEvento = new javax.swing.JTextField();
         txtAño = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtPropietario = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -443,7 +443,19 @@ public class competenciaCarroForm extends javax.swing.JFrame {
 
         jLabel26.setText("Propietario: ");
 
-        jButton2.setText("Mostrar");
+        cmdPremiosPropietario.setText("Mostrar");
+        cmdPremiosPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdPremiosPropietarioActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Mostrar todo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -465,10 +477,12 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(txtPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                    .addComponent(cmdPremiosPropietario, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                     .addComponent(Consu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -491,19 +505,14 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(cmdPremiosPropietario)
+                    .addComponent(txtPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Examen", jPanel5);
-
-        jButton1.setText("Mostrar todo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -511,16 +520,11 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTabbedPane1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -533,9 +537,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -674,7 +676,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         String año = txtAño.getText();
         
         if(evento.isEmpty() || año.isEmpty()){
-            Notificacion.alertaError("Debe ingresar todos los datos", "Sistema");
+            Notificacion.alertaError("Sistema", "Debe ingresar todos los datos");
             return;
         }
         
@@ -686,6 +688,18 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         txtAInfo.setText(competencia.recorrerPremios());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmdPremiosPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPremiosPropietarioActionPerformed
+        String cc = txtPropietario.getText();
+        
+        if(cc.isEmpty()){
+            Notificacion.alertaError("Sistema", "Debe ingresar todos los datos");
+            return;
+        }
+        
+        String mensaje = competencia.premiosdePropietario(cc);
+        txtAInfo.setText("Premios del propietario con CC "+cc+"\n"+mensaje);
+    }//GEN-LAST:event_cmdPremiosPropietarioActionPerformed
 
     public static boolean isNumeric(String num){
         try{
@@ -769,8 +783,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JButton cmdConnsultarPropietario;
     private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton cmdMostrarPremios;
+    private javax.swing.JButton cmdPremiosPropietario;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -805,7 +819,6 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea txtAInfo;
     private javax.swing.JTextField txtAño;
     private javax.swing.JTextField txtAñoAñadirPremio;
@@ -818,6 +831,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtModeloAñadirCarro;
     private javax.swing.JTextField txtNombreAñadirPropietario;
     private javax.swing.JTextField txtPlacaAñadirCarro;
+    private javax.swing.JTextField txtPropietario;
     private javax.swing.JTextField txtPuestoAñadirPremio;
     private javax.swing.JTextField txtTelefonoAñadirPropietario;
     // End of variables declaration//GEN-END:variables

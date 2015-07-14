@@ -19,6 +19,8 @@ package ufps.is.poo.negocio;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -83,6 +85,18 @@ public class Carro{
         return propietario;
     }
     
+    public boolean comprobarPropietario(String cc){
+        Collection<ArrayList<Propietario>> prop = propietarios.values();
+        Iterator<ArrayList<Propietario>> it = prop.iterator();
+        
+        ArrayList<Propietario> p = it.next();
+        for(Propietario x: p)
+            if(x.getCc().equalsIgnoreCase(cc))
+                return true;
+        
+        return false;
+    }
+    
     //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
     private boolean validarExistenciaPropietario(int año, String cc){
         ArrayList<Propietario> propietario = propietarios.get(año);
@@ -98,10 +112,20 @@ public class Carro{
         Collection<ArrayList<Propietario>> prop = propietarios.values();
         String nombres = "";
         
-//        for(ArrayList<Propietario> x: prop)
-//            
-        
         return nombres;
+    }
+    
+    public int obtenerAño(String cc){
+        Iterator it = propietarios.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry e = (Map.Entry) it.next();
+            ArrayList<Propietario> p = (ArrayList<Propietario>) e.getValue();
+            for(Propietario x: p)
+                if(x.getCc().equalsIgnoreCase(cc))
+                    return (Integer) e.getKey();
+        }
+        
+        return 0;
     }
 
     public int cantidadPropietarios(){

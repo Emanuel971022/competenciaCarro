@@ -59,7 +59,8 @@ public class Competencia{
      * @return Retorna true si añade el carro
      * @throws Exception 
      */
-    public boolean registrarPremioACarro(String placa, int anio, int puesto, String evento) throws Exception{
+    public boolean registrarPremioACarro(String placa, int anio, int puesto, 
+            String evento) throws Exception{
         Carro c = new Carro(placa);
         ArrayList<Premio> victorias = copas.get(c);
         if(victorias!=null){
@@ -72,7 +73,8 @@ public class Competencia{
             while(it.hasNext()){
                 ArrayList<Premio> p = it.next();
                 for(Premio x: p)
-                    if(x.getAnio()==anio && x.getPuesto()==puesto && x.getEvento().equalsIgnoreCase(evento))
+                    if(x.getAnio()==anio && x.getPuesto()==puesto &&
+                            x.getEvento().equalsIgnoreCase(evento))
                         throw new Exception("Doble premio");
             }
             
@@ -129,6 +131,42 @@ public class Competencia{
         return premios;
     }
     
+    public String imprimirPremiosCarro(String placa, int anio){
+        String premios = "";
+        
+        Iterator<Carro> iterator = copas.keySet().iterator();
+        while(iterator.hasNext()){
+            Carro c = iterator.next();
+            if(c.getPlaca().equalsIgnoreCase(placa)){
+                ArrayList<Premio> prem = copas.get(c);
+                for(Premio x: prem)
+                    if(x.getAnio()==anio)
+                        premios += "\n"+x.toString();
+            }
+        }
+        
+        return premios;
+    }
+    
+    /**    NO ESTA EN USO
+     * Muestra todos los premios de todos los carros
+     * @return 
+     */
+    public String imprimirPremiosCarro(){
+        String premios = "";
+        
+        Iterator<Carro> iterator = copas.keySet().iterator();
+        while(iterator.hasNext()){
+            Carro c = iterator.next();
+            ArrayList<Premio> prem = copas.get(c);
+            if(prem != null)
+                for(Premio x: prem)
+                    premios += "\nPlaca: "+c.getPlaca()+"\n"+x.toString();
+        }
+        
+        return premios;
+    }
+    
     /**
      * Añade un propietario a un carro para un año
      * @param placa
@@ -180,31 +218,33 @@ public class Competencia{
                    for(Carro y: copas.keySet())
                        ganadores += y.imprimirInfoBasicPropietariosParaUnAño(año);
             
-        /*
-        El problema de repetir nombres de propietarios se da cuando dos carros
-        diferentes tienen el mismo evento y el mismo año, el sistema por defecto
-        revisa que un carro no pueda registrar dos premios con el mismo año y
-        evento, pero yo no programé que le permitiera verificar en los demás
-        carros esta información. //YA SOLUCIONÉ ESTE PROBLEMA, SIMPLEMENTE TENÍA
-            QUE QUITAR EL while(it.hashNext) PORQUE ESA ERA LA CAUSA DE MI PROBLEMA.
-        
-        Surge un NullPointer cuando existe un carro con un premio del evento en
-        el año que se esta consultando y no existe ningún propietario registrado.
-        Esto lo soluciono mirando si el ArrayList no esta vacio.
-        
-        Cuando existen dos o más carros que tienen el mismo Premio para un evento
-        en un año -Esto claro, con un puesto diferente- los resultados se duplican.
-        Pienso hacer debug del metodo para ver como se comporta el metodo en este
-        caso.
-        */
-        
         return ganadores;
     }
-    //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
             
     //-----------------------REQUERIMIENTOS PARA VACACIONES--------------------//
-    public String propietario(String cc){
-        return "";
+    /**
+     * Este metodo imprime los premios de un propietario con todos los carros 
+     * que haya tenido.
+     * @param cc
+     * @return Retorna un string con formato para mostrar la informacion
+     */
+    public String premiosdePropietario(String cc){
+        String mensaje = "";
+        
+        Iterator it = copas.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry e = (Map.Entry) it.next();
+            Carro c = (Carro) e.getKey();
+            try{
+                if(c.comprobarPropietario(cc))
+                    mensaje += this.imprimirPremiosCarro(c.getPlaca(), 
+                            this.obtenerAñoPropietario(cc, c.getPlaca()));
+            }catch(java.util.NoSuchElementException ex){
+                return mensaje;
+            }
+        }
+        
+        return mensaje;
     }
     
     /**
@@ -217,12 +257,12 @@ public class Competencia{
         Iterator it = copas.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry e = (Map.Entry)it.next();
-            mensaje += e.getKey()+" "+e.getValue();
+            mensaje += e.getKey()+"\n"+e.getValue()+"\n\n";
         }
+        
         return mensaje;
     }
-    //-----------------------REQUERIMIENTOS PARA VACACIONES--------------------//
-        
+    
     //-----------------------REQUERIMIENTOS OPERACIONALES----------------------//
     /**
      * Concatena las placas de todos los carros registrados.
@@ -240,22 +280,43 @@ public class Competencia{
         return placas;
     }
     
-    /**
-     * 
-     * @return 
-     */
-    public String concatenarPropietario(){
-        for(Carro x: copas.keySet())
-            return x.concatenarPropietarios();
-        
-        return "";
-    }
-    
-    public int cantidadPropietarios(String placa){
-        for(Carro x: copas.keySet())
-            if(x.getPlaca().equalsIgnoreCase(placa))
-                return x.cantidadPropietarios();
+    public int obtenerAñoPropietario(String cc, String placa){
+        Iterator it = copas.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry e = (Map.Entry) it.next();
+            Carro c = (Carro) e.getKey();
+            if(c.getPlaca().equalsIgnoreCase(placa))
+                return c.obtenerAño(cc);
+        }
         
         return 0;
     }
+    
+    /*
+    ----------------------------NOTAS DE TESTEO-----------------------------
+
+    El problema de repetir nombres de propietarios se da cuando dos carros
+    diferentes tienen el mismo evento y el mismo año, el sistema por defecto
+    revisa que un carro no pueda registrar dos premios con el mismo año y
+    evento, pero yo no programé que le permitiera verificar en los demás
+    carros esta información. //YA SOLUCIONÉ ESTE PROBLEMA, SIMPLEMENTE TENÍA
+        QUE QUITAR EL while(it.hashNext) PORQUE ESA ERA LA CAUSA DE MI PROBLEMA.
+
+    Surge un NullPointer cuando existe un carro con un premio del evento en el
+    año que se esta consultando y no existe ningún propietario registrado.
+    Esto lo soluciono mirando si el ArrayList no esta vacio.
+
+    Cuando existen dos o más carros que tienen el mismo Premio para un evento en
+    un año -Esto claro, con un puesto diferente- los resultados se duplican.
+    Pienso hacer debug del metodo para ver como se comporta el metodo en este
+    caso.
+
+    Cuando solo un propietario tiene un en su historial un solo carro, y este
+    tiene varios premios, se presenta un error: java.util.NoSuchElementException
+    Soluciono el problema con esa excepcion, uso un try catch para comprobar,
+
+    Se muestra un premio sin ser del propietario ingresado. esto lo soluciono
+    cambiando el metodo que usaba para imprimir los premios, ahora le envío la 
+    placa del carro.
+    */
 }
