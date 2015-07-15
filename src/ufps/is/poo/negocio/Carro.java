@@ -45,6 +45,18 @@ public class Carro{
     }
     
     //--------------------REQUERIMIENTOS FUNCIONALES---------------------------//
+    /**
+     * AÑade un propietario al HashMap organizandolos por año, cómo llave y cada
+     * propietario como un objeto de un arraylist en value..
+     * @param año
+     * @param nombre
+     * @param cc
+     * @param direccion
+     * @param ciudad
+     * @param telefono
+     * @return Retorna true dado el caso añada correctamente al propietario.
+     * @throws Exception 
+     */
     public boolean agregarPropietario(int año, String nombre, String cc,
             String direccion, String ciudad, String telefono) throws Exception{
         if(!propietarios.containsKey(año))
@@ -62,6 +74,28 @@ public class Carro{
         return false;
     }
     
+    
+    //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
+    /**
+     * 
+     * @param año
+     * @param cc
+     * @return 
+     */
+    private boolean validarExistenciaPropietario(int año, String cc){
+        ArrayList<Propietario> propietario = propietarios.get(año);
+        
+        for(Propietario x: propietario)
+            if(x.getCc().equalsIgnoreCase(cc))
+                return true;
+        
+        return false;
+    }
+    /**
+     * Concatena y envia todos los propietarios de un año.
+     * @param año
+     * @return 
+     */
     public String imprimirPropietariosParaUnAño(int año){
         String propietario = "";
                
@@ -74,6 +108,13 @@ public class Carro{
         return propietario;
     }
     
+    /**
+     * Concatena y envia todos los propietarios de un año, pero esto de más corto
+     * que el metodo imprimitPropietariosParaUnAño(int año) con la información
+     * que envia.
+     * @param año
+     * @return Retorna la informacion que reune.
+     */
     public String imprimirInfoBasicPropietariosParaUnAño(int año){
         String propietario = "";
         
@@ -85,6 +126,11 @@ public class Carro{
         return propietario;
     }
     
+    /**
+     * Busca en los propietarios a ver si existe un propietario con la cedula
+     * @param cc
+     * @return Retorna true si existe el propietario
+     */
     public boolean comprobarPropietario(String cc){
         Collection<ArrayList<Propietario>> prop = propietarios.values();
         Iterator<ArrayList<Propietario>> it = prop.iterator();
@@ -97,24 +143,11 @@ public class Carro{
         return false;
     }
     
-    //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
-    private boolean validarExistenciaPropietario(int año, String cc){
-        ArrayList<Propietario> propietario = propietarios.get(año);
-        
-        for(Propietario x: propietario)
-            if(x.getCc().equalsIgnoreCase(cc))
-                return true;
-        
-        return false;
-    }
-    
-    public String concatenarPropietarios(){
-        Collection<ArrayList<Propietario>> prop = propietarios.values();
-        String nombres = "";
-        
-        return nombres;
-    }
-    
+    /**
+     * Obtiene un año en que el propietario fue dueño del vehiculo.
+     * @param cc
+     * @return Retorna el año.
+     */
     public int obtenerAño(String cc){
         Iterator it = propietarios.entrySet().iterator();
         while(it.hasNext()){
@@ -128,6 +161,7 @@ public class Carro{
         return 0;
     }
 
+    //-------------------------GETTER'S Y SETTER'S----------------------------//
     public int cantidadPropietarios(){
         return propietarios.size();
     }
@@ -156,6 +190,7 @@ public class Carro{
         this.modelo = modelo;
     }
     
+    //------------------------------METODOS MODIFICADOS------------------------//
     @Override
     public String toString(){
         return "Placa: "+getPlaca()
