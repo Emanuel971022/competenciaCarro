@@ -131,6 +131,14 @@ public class Competencia{
         return premios;
     }
     
+    
+    /**
+     * Busca y muestra los premios de un carro a partir de la placa del carro y
+     * el año que ganaron. Ambos lo recibe por parametros.
+     * @param placa
+     * @param anio
+     * @return Retorna un String igual al de su metodo hermano,.
+     */
     public String imprimirPremiosCarro(String placa, int anio){
         String premios = "";
         
@@ -143,25 +151,6 @@ public class Competencia{
                     if(x.getAnio()==anio)
                         premios += "\n"+x.toString();
             }
-        }
-        
-        return premios;
-    }
-    
-    /**    NO ESTA EN USO
-     * Muestra todos los premios de todos los carros
-     * @return 
-     */
-    public String imprimirPremiosCarro(){
-        String premios = "";
-        
-        Iterator<Carro> iterator = copas.keySet().iterator();
-        while(iterator.hasNext()){
-            Carro c = iterator.next();
-            ArrayList<Premio> prem = copas.get(c);
-            if(prem != null)
-                for(Premio x: prem)
-                    premios += "\nPlaca: "+c.getPlaca()+"\n"+x.toString();
         }
         
         return premios;
@@ -207,6 +196,13 @@ public class Competencia{
     }
     
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
+    /**
+     * Busca cuales fueron los propietarios de un carro o varios carros para un
+     * evento.
+     * @param evento
+     * @param año
+     * @return Retorna la información de los propietarios.
+     */
     public String propietarioParaUnaVictoria(String evento, int año){
         Collection<ArrayList<Premio>> premio = copas.values();
         String ganadores = "";
@@ -280,6 +276,14 @@ public class Competencia{
         return placas;
     }
     
+    /**
+     * Busca en los propietarios del vehiculo y retorna el año en el que este fue
+     * dueño del vehiculo.
+     * @param cc
+     * @param placa
+     * @return retorna un entero con el año en el que fue dueño un propietario 
+     * del vehiculo.
+     */
     public int obtenerAñoPropietario(String cc, String placa){
         Iterator it = copas.entrySet().iterator();
         while(it.hasNext()){
@@ -291,32 +295,4 @@ public class Competencia{
         
         return 0;
     }
-    
-    /*
-    ----------------------------NOTAS DE TESTEO-----------------------------
-
-    El problema de repetir nombres de propietarios se da cuando dos carros
-    diferentes tienen el mismo evento y el mismo año, el sistema por defecto
-    revisa que un carro no pueda registrar dos premios con el mismo año y
-    evento, pero yo no programé que le permitiera verificar en los demás
-    carros esta información. //YA SOLUCIONÉ ESTE PROBLEMA, SIMPLEMENTE TENÍA
-        QUE QUITAR EL while(it.hashNext) PORQUE ESA ERA LA CAUSA DE MI PROBLEMA.
-
-    Surge un NullPointer cuando existe un carro con un premio del evento en el
-    año que se esta consultando y no existe ningún propietario registrado.
-    Esto lo soluciono mirando si el ArrayList no esta vacio.
-
-    Cuando existen dos o más carros que tienen el mismo Premio para un evento en
-    un año -Esto claro, con un puesto diferente- los resultados se duplican.
-    Pienso hacer debug del metodo para ver como se comporta el metodo en este
-    caso.
-
-    Cuando solo un propietario tiene un en su historial un solo carro, y este
-    tiene varios premios, se presenta un error: java.util.NoSuchElementException
-    Soluciono el problema con esa excepcion, uso un try catch para comprobar,
-
-    Se muestra un premio sin ser del propietario ingresado. esto lo soluciono
-    cambiando el metodo que usaba para imprimir los premios, ahora le envío la 
-    placa del carro.
-    */
 }
