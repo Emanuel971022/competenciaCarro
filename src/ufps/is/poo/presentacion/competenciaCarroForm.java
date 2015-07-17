@@ -4,8 +4,10 @@ import ufps.is.poo.util.Notificacion;
 import ufps.is.poo.negocio.Competencia;
 
 /**
- *
+ * Esta clase es la interfaz grafica principal del proyecto, aquí se encuentran
+ * todas las funciones de la aplicacion.
  * @author Emanuel Martínez Pinzón
+ * @version 1.0 16-07-15
  */
 public class competenciaCarroForm extends javax.swing.JFrame {
 
@@ -30,19 +32,19 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtPlacaAñadirCarro = new javax.swing.JTextField();
-        txtModeloAñadirCarro = new javax.swing.JTextField();
         txtMarcaAñadirCarro = new javax.swing.JTextField();
         cmdAñadirCarro = new javax.swing.JButton();
+        cmbModeloCarro = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtAñoAñadirPremio = new javax.swing.JTextField();
         txtPuestoAñadirPremio = new javax.swing.JTextField();
         txtEventoAñadirPremio = new javax.swing.JTextField();
         cmbCarroAñadirPremio = new javax.swing.JComboBox();
         cmdAñadirPremio = new javax.swing.JButton();
+        cmbAñoPremio = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -81,14 +83,14 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        Consu = new javax.swing.JButton();
+        cmdMostrarPropietariosParaunEvento = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         cmdPremiosPropietario = new javax.swing.JButton();
         txtEvento = new javax.swing.JTextField();
-        txtAño = new javax.swing.JTextField();
         txtPropietario = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        cmbAñoPropietariosGanadoresdeEvento = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Competencia de Carros");
@@ -107,6 +109,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             }
         });
 
+        cmbModeloCarro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,8 +127,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPlacaAñadirCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtModeloAñadirCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMarcaAñadirCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtMarcaAñadirCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbModeloCarro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,10 +145,10 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtModeloAñadirCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbModeloCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmdAñadirCarro)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Añadir carro", jPanel1);
@@ -164,6 +168,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             }
         });
 
+        cmbAñoPremio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -180,23 +186,23 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAñoAñadirPremio)
                             .addComponent(txtPuestoAñadirPremio)
                             .addComponent(txtEventoAñadirPremio)
-                            .addComponent(cmbCarroAñadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cmbCarroAñadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbAñoPremio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cmbCarroAñadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtAñoAñadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbAñoPremio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -432,10 +438,10 @@ public class competenciaCarroForm extends javax.swing.JFrame {
 
         jLabel24.setText("Año: ");
 
-        Consu.setText("Mostrar");
-        Consu.addActionListener(new java.awt.event.ActionListener() {
+        cmdMostrarPropietariosParaunEvento.setText("Mostrar");
+        cmdMostrarPropietariosParaunEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsuActionPerformed(evt);
+                cmdMostrarPropietariosParaunEventoActionPerformed(evt);
             }
         });
 
@@ -457,6 +463,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             }
         });
 
+        cmbAñoPropietariosGanadoresdeEvento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -471,7 +479,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtEvento, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(txtAño)))
+                            .addComponent(cmbAñoPropietariosGanadoresdeEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -483,7 +491,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmdPremiosPropietario, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                    .addComponent(Consu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmdMostrarPropietariosParaunEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -498,8 +506,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(Consu)
-                    .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmdMostrarPropietariosParaunEvento)
+                    .addComponent(cmbAñoPropietariosGanadoresdeEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -546,15 +554,10 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private void cmdAñadirCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAñadirCarroActionPerformed
         String placa = txtPlacaAñadirCarro.getText();
         String marca = txtMarcaAñadirCarro.getText();
-        String modelo = txtModeloAñadirCarro.getText();
+        String modelo = cmbModeloCarro.getSelectedItem().toString();
         
-        if(placa.isEmpty() || marca.isEmpty() || modelo.isEmpty()){
+        if(placa.isEmpty() || marca.isEmpty()){
             Notificacion.alertaAtencion("Alerta!!!", "Ingrese todos los datos");
-            return;
-        }
-            
-        if(!isNumeric(modelo)){
-            Notificacion.alertaAtencion("Alerta!!!", "Debe ingresar un numero de modelo");
             return;
         }
         
@@ -568,12 +571,11 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         
         txtPlacaAñadirCarro.setText("");
         txtMarcaAñadirCarro.setText("");
-        txtModeloAñadirCarro.setText("");
     }//GEN-LAST:event_cmdAñadirCarroActionPerformed
 
     private void cmdAñadirPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAñadirPremioActionPerformed
         String placa = cmbCarroAñadirPremio.getSelectedItem().toString();
-        String anio = txtAñoAñadirPremio.getText();
+        String anio = cmbAñoPremio.getSelectedItem().toString();
         String puesto = txtPuestoAñadirPremio.getText();
         String evento = txtEventoAñadirPremio.getText();
         
@@ -601,7 +603,6 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         else
             Notificacion.alertaError("Error", "Ocurrio un error al realizar el registro");
         
-        txtAñoAñadirPremio.setText("");
         txtEventoAñadirPremio.setText("");
         txtPuestoAñadirPremio.setText("");
     }//GEN-LAST:event_cmdAñadirPremioActionPerformed
@@ -609,15 +610,15 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
         String rango = cmbModeloMostrarCarro.getSelectedItem().toString();
         
-        String mens = competencia.imprimirCarrosParaUnRango(rango);
-        txtAInfo.setText("Carros de modelo entre "+rango+"\n"+mens);
+        txtAInfo.setText("Carros de modelo entre "+rango+"\n"
+                +competencia.imprimirCarrosParaUnRango(rango));
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     private void cmdMostrarPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarPremiosActionPerformed
         String placa = cmbPlacaMostrarPremio.getSelectedItem().toString();
         
-        String mens = competencia.imprimirPremiosCarro(placa);
-        txtAInfo.setText("Premios obtenidos por el carro - Placa: "+placa+"\n"+mens);
+        txtAInfo.setText("Premios obtenidos por el carro - Placa: "+placa+"\n"
+                +competencia.imprimirPremiosCarro(placa));
     }//GEN-LAST:event_cmdMostrarPremiosActionPerformed
 
     private void cmdAñadirPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAñadirPropietarioActionPerformed
@@ -659,31 +660,28 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         txtDireccionAñadirPropietario.setText("");
         txtCiudadAñadirPropietario.setText("");
         txtTelefonoAñadirPropietario.setText("");
-//        llenarComboPropietario();
     }//GEN-LAST:event_cmdAñadirPropietarioActionPerformed
 
     private void cmdConnsultarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConnsultarPropietarioActionPerformed
         String placa = cmbPlacaMostrarPropietario.getSelectedItem().toString();
         String año = cmbAñoMostrarPropietario.getSelectedItem().toString();
-        
-        String men = competencia.imprimirPropietarios(placa, Integer.parseInt(año));
-        
-        txtAInfo.setText("Propietarios del año "+año+"\n"+men);
+                
+        txtAInfo.setText("Propietarios del año "+año+"\n"
+                +competencia.imprimirPropietarios(placa, Integer.parseInt(año)));
     }//GEN-LAST:event_cmdConnsultarPropietarioActionPerformed
 
-    private void ConsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsuActionPerformed
+    private void cmdMostrarPropietariosParaunEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarPropietariosParaunEventoActionPerformed
         String evento = txtEvento.getText();
-        String año = txtAño.getText();
+        String año = cmbAñoPropietariosGanadoresdeEvento.getSelectedItem().toString();
         
-        if(evento.isEmpty() || año.isEmpty()){
+        if(evento.isEmpty()){
             Notificacion.alertaError("Sistema", "Debe ingresar todos los datos");
             return;
         }
         
-        String info = competencia.propietarioParaUnaVictoria(evento, Integer.parseInt(año));
-        
-        txtAInfo.setText("Propietarios para el evento "+evento+"\n"+info);
-    }//GEN-LAST:event_ConsuActionPerformed
+        txtAInfo.setText("Propietarios para el evento "+evento+"\n"
+                +competencia.propietarioParaUnaVictoria(evento, Integer.parseInt(año)));
+    }//GEN-LAST:event_cmdMostrarPropietariosParaunEventoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         txtAInfo.setText(competencia.recorrerPremios());
@@ -697,8 +695,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             return;
         }
         
-        String mensaje = competencia.premiosdePropietario(cc);
-        txtAInfo.setText("Premios del propietario con CC "+cc+"\n"+mensaje);
+        txtAInfo.setText("Premios del propietario con CC "+cc+"\n"
+                +competencia.premiosdePropietario(cc));
     }//GEN-LAST:event_cmdPremiosPropietarioActionPerformed
 
     public static boolean isNumeric(String num){
@@ -732,13 +730,6 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         }
     }
     
-//    public void llenarComboPropietario(){
-//        String cc[] = competencia.concatenarPropietario().split("~");
-//        cmbPropietarioMostrarPremiosGanados.removeAllItems();
-//        for(String x: cc)
-//            cmbPropietarioMostrarPremiosGanados.addItem(x);
-//    }
-    
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -769,10 +760,12 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Consu;
     private javax.swing.JComboBox cmbAñoAñadirPropietario;
     private javax.swing.JComboBox cmbAñoMostrarPropietario;
+    private javax.swing.JComboBox cmbAñoPremio;
+    private javax.swing.JComboBox cmbAñoPropietariosGanadoresdeEvento;
     private javax.swing.JComboBox cmbCarroAñadirPremio;
+    private javax.swing.JComboBox cmbModeloCarro;
     private javax.swing.JComboBox cmbModeloMostrarCarro;
     private javax.swing.JComboBox cmbPlacaAñadirPropietario;
     private javax.swing.JComboBox cmbPlacaMostrarPremio;
@@ -783,6 +776,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JButton cmdConnsultarPropietario;
     private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton cmdMostrarPremios;
+    private javax.swing.JButton cmdMostrarPropietariosParaunEvento;
     private javax.swing.JButton cmdPremiosPropietario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -820,15 +814,12 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea txtAInfo;
-    private javax.swing.JTextField txtAño;
-    private javax.swing.JTextField txtAñoAñadirPremio;
     private javax.swing.JTextField txtCCAñadirPropietario;
     private javax.swing.JTextField txtCiudadAñadirPropietario;
     private javax.swing.JTextField txtDireccionAñadirPropietario;
     private javax.swing.JTextField txtEvento;
     private javax.swing.JTextField txtEventoAñadirPremio;
     private javax.swing.JTextField txtMarcaAñadirCarro;
-    private javax.swing.JTextField txtModeloAñadirCarro;
     private javax.swing.JTextField txtNombreAñadirPropietario;
     private javax.swing.JTextField txtPlacaAñadirCarro;
     private javax.swing.JTextField txtPropietario;

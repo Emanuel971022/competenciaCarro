@@ -24,7 +24,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- *
+ * Esta clase contiene la plantilla que guarda la información de cada objeto carro.
+ * 
+ * Tambien realiza los metodos que interactuan con los propietarios, tales como
+ * registro de nuevos propietarios y consultas relacionadas con esto.
  * @author Emanuel Martinez Pinzon
  */
 public class Carro{
@@ -77,10 +80,11 @@ public class Carro{
     
     //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
     /**
-     * 
+     * Busca en los propietarios ya creados si existe alguno con la informacion 
+     * que recibe por parametro.
      * @param año
      * @param cc
-     * @return 
+     * @return Retorna true si existe el propietario.
      */
     private boolean validarExistenciaPropietario(int año, String cc){
         ArrayList<Propietario> propietario = propietarios.get(año);
@@ -94,7 +98,7 @@ public class Carro{
     /**
      * Concatena y envia todos los propietarios de un año.
      * @param año
-     * @return 
+     * @return Retorna un String con la informacion de los propietarios.
      */
     public String imprimirPropietariosParaUnAño(int año){
         String propietario = "";
@@ -191,6 +195,11 @@ public class Carro{
     }
     
     //------------------------------METODOS MODIFICADOS------------------------//
+    /**
+     * Se reescribe el metodo toString para que los objetos Carro tengan un formato
+     * establecido.
+     * @return Retorna la informacion del objeto.
+     */
     @Override
     public String toString(){
         return "Placa: "+getPlaca()
@@ -198,6 +207,10 @@ public class Carro{
             +"\nModelo: "+getModelo()+"\n";
     }
     
+    /**
+     * Se reescribe este metodo hashCode para que el tipo map se conserve.
+     * @return Retorna el hash que calcula en el metodo
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -205,6 +218,13 @@ public class Carro{
         return hash;
     }
     
+    /**
+     * Este metodo ha sido reescrito para que un objeto Carro con todos los parametros
+     * pueda ser comparado con un objeto Carro que solo tenga una placa y aun asi
+     * ambas placas siendo iguales se pueda dar verdadero.
+     * @param obj
+     * @return Retorna true si ambas placas son iguales
+     */
     @Override
     public boolean equals(Object obj) {
         Carro c = (Carro) obj;

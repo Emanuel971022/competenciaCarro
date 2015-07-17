@@ -17,7 +17,7 @@
 package ufps.is.poo.negocio;
 
 /**
- *
+ * Esta es la plantilla de cada objeto propietario.
  * @author Emanuel Martinez Pinzon
  */
 public class Propietario{
