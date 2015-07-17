@@ -1,0 +1,3 @@
+Poder eliminar algun carro, premio o propietario borrando o migrando sus registros.
+
+Añadir opción para crear eventos de forma independiente y seleccionarlos mediante un combo.

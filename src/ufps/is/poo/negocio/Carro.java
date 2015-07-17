@@ -49,16 +49,16 @@ public class Carro{
     
     //--------------------REQUERIMIENTOS FUNCIONALES---------------------------//
     /**
-     * AÑade un propietario al HashMap organizandolos por año, cómo llave y cada
+     * Añade un propietario al HashMap organizandolos por año, cómo llave y cada
      * propietario como un objeto de un arraylist en value..
-     * @param año
-     * @param nombre
-     * @param cc
-     * @param direccion
-     * @param ciudad
-     * @param telefono
+     * @param año Año en que el propietario fue dueño del carro
+     * @param nombre Nombre del propietario
+     * @param cc NIT del propietario - Con esto se comparan todos los propietarios.
+     * @param direccion Direccion del propietario
+     * @param ciudad Ciudad de residencia del propietario
+     * @param telefono Telefono del propietario
      * @return Retorna true dado el caso añada correctamente al propietario.
-     * @throws Exception 
+     * @throws Exception Si existen dos propietarios se genera una excepcion.
      */
     public boolean agregarPropietario(int año, String nombre, String cc,
             String direccion, String ciudad, String telefono) throws Exception{
@@ -82,8 +82,8 @@ public class Carro{
     /**
      * Busca en los propietarios ya creados si existe alguno con la informacion 
      * que recibe por parametro.
-     * @param año
-     * @param cc
+     * @param año Año en que se buscara un propietaio.
+     * @param cc NIT para comparar el propietario
      * @return Retorna true si existe el propietario.
      */
     private boolean validarExistenciaPropietario(int año, String cc){
@@ -97,7 +97,7 @@ public class Carro{
     }
     /**
      * Concatena y envia todos los propietarios de un año.
-     * @param año
+     * @param año Año para imprimir los propietarios.
      * @return Retorna un String con la informacion de los propietarios.
      */
     public String imprimirPropietariosParaUnAño(int año){
@@ -116,7 +116,7 @@ public class Carro{
      * Concatena y envia todos los propietarios de un año, pero esto de más corto
      * que el metodo imprimitPropietariosParaUnAño(int año) con la información
      * que envia.
-     * @param año
+     * @param año Año para imprimir los propietarios.
      * @return Retorna la informacion que reune.
      */
     public String imprimirInfoBasicPropietariosParaUnAño(int año){
@@ -132,7 +132,7 @@ public class Carro{
     
     /**
      * Busca en los propietarios a ver si existe un propietario con la cedula
-     * @param cc
+     * @param cc NIT para comprobar un propietario.
      * @return Retorna true si existe el propietario
      */
     public boolean comprobarPropietario(String cc){
@@ -149,7 +149,7 @@ public class Carro{
     
     /**
      * Obtiene un año en que el propietario fue dueño del vehiculo.
-     * @param cc
+     * @param cc NIT para obtener el año en que un propietario fue dueño del carro.
      * @return Retorna el año.
      */
     public int obtenerAño(String cc){
@@ -222,7 +222,7 @@ public class Carro{
      * Este metodo ha sido reescrito para que un objeto Carro con todos los parametros
      * pueda ser comparado con un objeto Carro que solo tenga una placa y aun asi
      * ambas placas siendo iguales se pueda dar verdadero.
-     * @param obj
+     * @param obj Object
      * @return Retorna true si ambas placas son iguales
      */
     @Override

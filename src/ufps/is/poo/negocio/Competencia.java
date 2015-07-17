@@ -37,9 +37,9 @@ public class Competencia{
     //-------------------------REQUERIMIENTOS FUNCIONALES----------------------//
     /**
      * Añade un carro como llave al HashMap copas
-     * @param placa
-     * @param marca
-     * @param modelo
+     * @param placa Placa del carro
+     * @param marca Marca del carro
+     * @param modelo Modelo del carro
      * @return retorna true dado el caso añada el carro
      */
     public boolean agregarCarro(String placa, String marca, int modelo){
@@ -54,12 +54,12 @@ public class Competencia{
     
     /**
      * Añade un objeto al ArrayList de premios de un carro
-     * @param placa
-     * @param anio
-     * @param puesto
-     * @param evento
+     * @param placa Placa del carro que gano el premio
+     * @param anio Año en que se gano el premio
+     * @param puesto Puesto en que quedo en el evento
+     * @param evento Evento en que gano algo
      * @return Retorna true si añade el carro
-     * @throws Exception 
+     * @throws Exception Si existe un premio con el mismo año se genera una excepcion.
      */
     public boolean registrarPremioACarro(String placa, int anio, int puesto, 
             String evento) throws Exception{
@@ -89,7 +89,7 @@ public class Competencia{
     
     /**
      * Concatena y muestra los carros registrados en un rango de fechas
-     * @param rango
+     * @param rango Rango de años para mostrar carros
      * @return retorna los carros encontradas en un rango.
      */
     public String imprimirCarrosParaUnRango(String rango){
@@ -114,7 +114,7 @@ public class Competencia{
     
     /**
      * Busca y muestra los premios de un carro
-     * @param placa
+     * @param placa Placa para buscar e imprimir carros
      * @return retorna los premios del carro.
      */
     public String imprimirPremiosCarro(String placa){
@@ -137,8 +137,8 @@ public class Competencia{
     /**
      * Busca y muestra los premios de un carro a partir de la placa del carro y
      * el año que ganaron. Ambos lo recibe por parametros.
-     * @param placa
-     * @param anio
+     * @param placa Placa para imprimir los premios
+     * @param anio Año que debe buscar.
      * @return Retorna un String igual al de su metodo hermano,.
      */
     public String imprimirPremiosCarro(String placa, int anio){
@@ -160,15 +160,15 @@ public class Competencia{
     
     /**
      * Añade un propietario a un carro para un año
-     * @param placa
-     * @param año
-     * @param nombre
-     * @param cc
-     * @param direccion
-     * @param ciudad
-     * @param telefono
+     * @param placa Placa del carro que compro el propietario
+     * @param año Año en que lo compro
+     * @param nombre Nombre del propietario
+     * @param cc NIT del propietario
+     * @param direccion Direccion del propietario
+     * @param ciudad Ciudad del propietario
+     * @param telefono Telefono del propietario
      * @return retorna true si se añade correctamente el propietario
-     * @throws Exception 
+     * @throws Exception Si existe un propietario con la misma info se genera la excepcion.
      */
     public boolean agregarPropietario(String placa, int año, String nombre, String cc,
             String direccion, String ciudad, String telefono) throws Exception{
@@ -183,8 +183,8 @@ public class Competencia{
     
     /**
      * Muestra los propietarios registrados en una placa y un año
-     * @param placa
-     * @param año
+     * @param placa Placa del carro
+     * @param año Año para buscar
      * @return Retorna un String con los propietarios
      */
     public String imprimirPropietarios(String placa, int año){
@@ -201,8 +201,8 @@ public class Competencia{
     /**
      * Busca cuales fueron los propietarios de un carro o varios carros para un
      * evento.
-     * @param evento
-     * @param año
+     * @param evento Evento en que participo y gano
+     * @param año Año en que participo y gano
      * @return Retorna la información de los propietarios.
      */
     public String propietarioParaUnaVictoria(String evento, int año){
@@ -223,7 +223,7 @@ public class Competencia{
     /**
      * Este metodo imprime los premios de un propietario con todos los carros 
      * que haya tenido.
-     * @param cc
+     * @param cc NIT para buscar los premios del propietario
      * @return Retorna un string con formato para mostrar la informacion
      */
     public String premiosdePropietario(String cc){
@@ -281,8 +281,8 @@ public class Competencia{
     /**
      * Busca en los propietarios del vehiculo y retorna el año en el que este fue
      * dueño del vehiculo.
-     * @param cc
-     * @param placa
+     * @param cc NIT para buscar el año del propietario
+     * @param placa Placa para buscar el propietario en el carro
      * @return retorna un entero con el año en el que fue dueño un propietario 
      * del vehiculo.
      */

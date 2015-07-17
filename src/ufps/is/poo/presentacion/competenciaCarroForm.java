@@ -89,7 +89,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         cmdPremiosPropietario = new javax.swing.JButton();
         txtEvento = new javax.swing.JTextField();
         txtPropietario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        cmdMostrarTodo = new javax.swing.JButton();
         cmbAñoPropietariosGanadoresdeEvento = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -456,10 +456,10 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Mostrar todo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cmdMostrarTodo.setText("Mostrar todo");
+        cmdMostrarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cmdMostrarTodoActionPerformed(evt);
             }
         });
 
@@ -486,7 +486,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(cmdMostrarTodo)
                             .addComponent(txtPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -516,7 +516,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                     .addComponent(cmdPremiosPropietario)
                     .addComponent(txtPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(cmdMostrarTodo)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -685,9 +685,9 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         txtEvento.setText("");
     }//GEN-LAST:event_cmdMostrarPropietariosParaunEventoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cmdMostrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarTodoActionPerformed
         txtAInfo.setText(competencia.recorrerPremios());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cmdMostrarTodoActionPerformed
 
     private void cmdPremiosPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPremiosPropietarioActionPerformed
         String cc = txtPropietario.getText();
@@ -703,6 +703,11 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         txtPropietario.setText("");
     }//GEN-LAST:event_cmdPremiosPropietarioActionPerformed
 
+    /**
+     * Comprueba si el String que recibe contiene puros nuemros en Long
+     * @param num Un numero en tipo de dato String
+     * @return Si contiene puros numeros retorna true
+     */
     public static boolean isNumeric(String num){
         try{
             Long.parseLong(num);
@@ -713,6 +718,10 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         return true;
     }
     
+    /**
+     * Habilita algunos botones de la interfaz que no pueden ser usados sin la
+     * existencia de al menos un carro
+     */
     public void habilitarBotones(){
         cmdAñadirPremio.setEnabled(true);
         cmdAñadirPropietario.setEnabled(true);
@@ -720,6 +729,9 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         cmdMostrarPremios.setEnabled(true);
     }
     
+    /**
+     * Llena con las placas de los carros los combos necesarios en la interfaz
+     */
     public void llenarComboPlaca(){
         String placa[] = competencia.concatenarplacas().split("~");
         cmbCarroAñadirPremio.removeAllItems();
@@ -781,8 +793,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton cmdMostrarPremios;
     private javax.swing.JButton cmdMostrarPropietariosParaunEvento;
+    private javax.swing.JButton cmdMostrarTodo;
     private javax.swing.JButton cmdPremiosPropietario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
