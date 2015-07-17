@@ -3,7 +3,11 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>competenciaCarro</name>
+=======
+            <name>JOptionPane</name>
+>>>>>>> 7cc0185cf15c65abaed1648e48f57f241f7aaadf
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
