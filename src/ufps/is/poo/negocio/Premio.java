@@ -19,7 +19,7 @@ package ufps.is.poo.negocio;
 import java.util.Objects;
 
 /**
- *
+ * Esta es la clase plantilla para todos los objetos premio.
  * @author Emanuel Martinez Pinzon
  */
 public class Premio{

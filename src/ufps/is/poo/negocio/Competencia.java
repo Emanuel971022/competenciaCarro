@@ -23,7 +23,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- *
+ * Esta es la clase contenedora del proyecto, tiene todos los metodos principales
+ * que interactuan con la GUI. Y algunos metodos de apoyo para los requerimientos
+ * funcionales.
  * @author Emanuel Martinez Pinzon
  */
 public class Competencia{
@@ -284,7 +286,7 @@ public class Competencia{
      * @return retorna un entero con el año en el que fue dueño un propietario 
      * del vehiculo.
      */
-    public int obtenerAñoPropietario(String cc, String placa){
+    private int obtenerAñoPropietario(String cc, String placa){
         Iterator it = copas.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry e = (Map.Entry) it.next();
