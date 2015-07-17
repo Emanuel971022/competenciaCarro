@@ -25,3 +25,5 @@ mismo año, pero no puede ser registrado dos veces en el mismo año para un carr
 
 En este repositorio existen dos archivos 'Enunciado del problema' en formato .PDF y en formato .ODT con los cuales podrá
 leer a fondo el problema que esta aplicación pretende resolver o editar el documento para realizar cambios en él.
+
+* En la raíz de este repositorio existe un archivo llamado 'testeo.txt' el cual contiene algunas notas sobre errores encontrados en el camino de desarrollo y la solución dada.
