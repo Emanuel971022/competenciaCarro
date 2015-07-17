@@ -35,16 +35,16 @@ public class Carro{
     private String marca;
     private int modelo;
     private HashMap<Integer, ArrayList<Propietario>> propietarios;
-
+    
+    public Carro(String placa) {
+        this.placa = placa;
+    }
+    
     public Carro(String placa, String marca, int modelo) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.propietarios = new HashMap<>();
-    }
-    
-    public Carro(String placa) {
-        this.placa = placa;
     }
     
     //--------------------REQUERIMIENTOS FUNCIONALES---------------------------//

@@ -681,6 +681,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         
         txtAInfo.setText("Propietarios para el evento "+evento+"\n"
                 +competencia.propietarioParaUnaVictoria(evento, Integer.parseInt(año)));
+        
+        txtEvento.setText("");
     }//GEN-LAST:event_cmdMostrarPropietariosParaunEventoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -697,6 +699,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         
         txtAInfo.setText("Premios del propietario con CC "+cc+"\n"
                 +competencia.premiosdePropietario(cc));
+        
+        txtPropietario.setText("");
     }//GEN-LAST:event_cmdPremiosPropietarioActionPerformed
 
     public static boolean isNumeric(String num){
