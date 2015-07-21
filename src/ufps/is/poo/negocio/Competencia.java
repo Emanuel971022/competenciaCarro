@@ -209,6 +209,32 @@ public class Competencia{
         return true;
     }
     
+    /**
+     * Borra un premio de algun carro.
+     * @param placa Placa del carro
+     * @param premio Premio que desea borrar
+     * @return Retorna true si ha eliminado bien.
+     */
+    public boolean borrarPremio(String placa, String premio){
+        String[] prem = premio.split("-");
+        Carro c = new Carro(placa);
+        ArrayList<Premio> premios = copas.get(c);
+        for(Premio x: premios)
+            if(x.getEvento().equalsIgnoreCase(prem[0])){
+                premios.remove(x);
+                return true;
+            }
+        
+        return false;
+    } 
+    
+    public boolean borrarTodosPremios(String placa){
+        Carro c = new Carro(placa);
+        ArrayList<Premio> prem = copas.get(c);
+        prem.clear();
+        return true;
+    }
+    
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
     /**
      * Busca cuales fueron los propietarios de un carro o varios carros para un
@@ -308,5 +334,20 @@ public class Competencia{
         }
         
         return 0;
+    }
+    
+    /**
+     * Concatena todos los premios de un carro
+     * @param placa Placa del carro para buscar premios
+     * @return Retorna una cadena con formato: evento-anio~evento-anio...
+     */
+    public String concatenarPremios(String placa){
+        String premios = "";
+        Carro c = new Carro(placa);
+        ArrayList<Premio> prem = copas.get(c);
+        for(Premio x: prem)
+            premios += x.getEvento()+"-"+x.getAnio()+"~";
+                
+        return premios;
     }
 }

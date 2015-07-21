@@ -68,16 +68,16 @@ public class Premio{
             +"\nEvento: "+getEvento()+"\n";
     }
     
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.evento);
-        return hash;
-    }
-    
-    @Override
-    public boolean equals(Object obj) {
-        Carro c = (Carro) obj;
-        return c.getPlaca().equals(getEvento());
-    }
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 61 * hash + Objects.hashCode(this.evento);
+//        return hash;
+//    }
+//    
+//    @Override
+//    public boolean equals(Object obj) {
+//        Carro c = (Carro) obj;
+//        return c.getPlaca().equals(getEvento());
+//    }
 }

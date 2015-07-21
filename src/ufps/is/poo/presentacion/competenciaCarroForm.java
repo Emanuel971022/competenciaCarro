@@ -106,6 +106,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         cmbPremioBorrarPremio = new javax.swing.JComboBox();
         cmdBorrarPremio = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         cmbPlacaBorrarPropietario = new javax.swing.JComboBox();
@@ -583,9 +584,27 @@ public class competenciaCarroForm extends javax.swing.JFrame {
 
         jLabel28.setText("Placa: ");
 
+        cmbPlacaBorrarPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPlacaBorrarPremioActionPerformed(evt);
+            }
+        });
+
         jLabel29.setText("Premio: ");
 
         cmdBorrarPremio.setText("Eliminar");
+        cmdBorrarPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarPremioActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Eliminar todos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -594,7 +613,6 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cmdBorrarPremio)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -604,7 +622,11 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(cmbPlacaBorrarPremio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(1, 1, 1))
-                            .addComponent(cmbPremioBorrarPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cmbPremioBorrarPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmdBorrarPremio)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -619,7 +641,9 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                     .addComponent(jLabel29)
                     .addComponent(cmbPremioBorrarPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmdBorrarPremio)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdBorrarPremio)
+                    .addComponent(jButton1))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -891,13 +915,35 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             Notificacion.alertaInformativo("Sistema", "Carro eliminado con exito");
         
         llenarComboPlaca();
-        
-        try{
-            System.out.println(cmbPlacaBorrarCarro.getSelectedIndex());
-        }catch(java.lang.NullPointerException npe){
-            System.out.println(cmbPlacaBorrarCarro.getSelectedIndex());
-        }
     }//GEN-LAST:event_cmdBorrarCarroActionPerformed
+
+    private void cmbPlacaBorrarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPlacaBorrarPremioActionPerformed
+        try{
+            String placa = cmbPlacaBorrarPremio.getSelectedItem().toString();
+            String[] premios = competencia.concatenarPremios(placa).split("~");
+            cmbPremioBorrarPremio.removeAllItems();
+            for(String x: premios)
+                cmbPremioBorrarPremio.addItem(x);
+        }catch(NullPointerException npe){
+        }finally{
+            cmdBorrarPremio.setEnabled(true);
+        }
+    }//GEN-LAST:event_cmbPlacaBorrarPremioActionPerformed
+
+    private void cmdBorrarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarPremioActionPerformed
+        String placa = cmbPlacaBorrarPremio.getSelectedItem().toString();
+        String premio = cmbPremioBorrarPremio.getSelectedItem().toString();
+        if(competencia.borrarPremio(placa, premio))
+            Notificacion.alertaInformativo("Sistema", "Premio eliminado con exito");
+    }//GEN-LAST:event_cmdBorrarPremioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String placa = cmbPlacaBorrarPremio.getSelectedItem().toString();
+        if(competencia.borrarTodosPremios(placa)){
+            Notificacion.alertaInformativo("Sistema", "Se han borrado todos los premios de este carro.");
+            cmbPlacaBorrarPremio.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * Comprueba si el String que recibe contiene puros nuemros en Long
@@ -1007,6 +1053,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JButton cmdMostrarPropietariosParaunEvento;
     private javax.swing.JButton cmdMostrarTodo;
     private javax.swing.JButton cmdPremiosPropietario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
