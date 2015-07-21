@@ -197,6 +197,18 @@ public class Competencia{
         return "No hay propietarios registrados de este vehiculo en ese año";
     }
     
+    /**
+     * Elimina un carro de la lista de vehiculos, eliminando tambien toda la 
+     * informacion asociada de los premios y propietarios.
+     * @param placa La placa del carro
+     * @return Retorna true si se ha eliminado bien el carro.
+     */
+    public boolean borrarCarro(String placa){
+        Carro c = new Carro(placa);
+        copas.remove(c);
+        return true;
+    }
+    
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
     /**
      * Busca cuales fueron los propietarios de un carro o varios carros para un

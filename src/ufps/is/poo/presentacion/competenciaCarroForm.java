@@ -20,6 +20,9 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         cmdAñadirPropietario.setEnabled(false);
         cmdConnsultarPropietario.setEnabled(false);
         cmdMostrarPremios.setEnabled(false);
+        cmdBorrarCarro.setEnabled(false);
+        cmdBorrarPremio.setEnabled(false);
+        cmdBorrarPropietario.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -91,6 +94,25 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         txtPropietario = new javax.swing.JTextField();
         cmdMostrarTodo = new javax.swing.JButton();
         cmbAñoPropietariosGanadoresdeEvento = new javax.swing.JComboBox();
+        jPanel6 = new javax.swing.JPanel();
+        tbpBorrarOpciones = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        cmbPlacaBorrarCarro = new javax.swing.JComboBox();
+        cmdBorrarCarro = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        cmbPlacaBorrarPremio = new javax.swing.JComboBox();
+        jLabel29 = new javax.swing.JLabel();
+        cmbPremioBorrarPremio = new javax.swing.JComboBox();
+        cmdBorrarPremio = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        cmbPlacaBorrarPropietario = new javax.swing.JComboBox();
+        cmbPropietarioBorrarPropietario = new javax.swing.JComboBox();
+        jLabel31 = new javax.swing.JLabel();
+        cmdBorrarPropietario = new javax.swing.JButton();
+        cmdBorrarTodo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Competencia de Carros");
@@ -522,6 +544,162 @@ public class competenciaCarroForm extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Examen", jPanel5);
 
+        jLabel27.setText("Placa: ");
+
+        cmdBorrarCarro.setText("Eliminar");
+        cmdBorrarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarCarroActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cmdBorrarCarro)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbPlacaBorrarCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(cmbPlacaBorrarCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmdBorrarCarro)
+                .addGap(34, 34, 34))
+        );
+
+        tbpBorrarOpciones.addTab("Carro", jPanel7);
+
+        jLabel28.setText("Placa: ");
+
+        jLabel29.setText("Premio: ");
+
+        cmdBorrarPremio.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cmdBorrarPremio)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(cmbPlacaBorrarPremio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(1, 1, 1))
+                            .addComponent(cmbPremioBorrarPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(cmbPlacaBorrarPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(cmbPremioBorrarPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmdBorrarPremio)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        tbpBorrarOpciones.addTab("Premio", jPanel8);
+
+        jLabel30.setText("Placa: ");
+
+        cmbPlacaBorrarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPlacaBorrarPropietarioActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Propietario: ");
+
+        cmdBorrarPropietario.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cmdBorrarPropietario)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbPlacaBorrarPropietario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbPropietarioBorrarPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(52, 52, 52))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbPlacaBorrarPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(cmbPropietarioBorrarPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmdBorrarPropietario)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        tbpBorrarOpciones.addTab("Propietario", jPanel9);
+
+        cmdBorrarTodo.setText("Borrar todo");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tbpBorrarOpciones)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cmdBorrarTodo)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tbpBorrarOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(cmdBorrarTodo)
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("Eliminar", jPanel6);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -703,6 +881,24 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         txtPropietario.setText("");
     }//GEN-LAST:event_cmdPremiosPropietarioActionPerformed
 
+    private void cmbPlacaBorrarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPlacaBorrarPropietarioActionPerformed
+        
+    }//GEN-LAST:event_cmbPlacaBorrarPropietarioActionPerformed
+
+    private void cmdBorrarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarCarroActionPerformed
+        String placa = cmbPlacaBorrarCarro.getSelectedItem().toString();
+        if(competencia.borrarCarro(placa))
+            Notificacion.alertaInformativo("Sistema", "Carro eliminado con exito");
+        
+        llenarComboPlaca();
+        
+        try{
+            System.out.println(cmbPlacaBorrarCarro.getSelectedIndex());
+        }catch(java.lang.NullPointerException npe){
+            System.out.println(cmbPlacaBorrarCarro.getSelectedIndex());
+        }
+    }//GEN-LAST:event_cmdBorrarCarroActionPerformed
+
     /**
      * Comprueba si el String que recibe contiene puros nuemros en Long
      * @param num Un numero en tipo de dato String
@@ -727,6 +923,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         cmdAñadirPropietario.setEnabled(true);
         cmdConnsultarPropietario.setEnabled(true);
         cmdMostrarPremios.setEnabled(true);
+        cmdBorrarCarro.setEnabled(true);
     }
     
     /**
@@ -738,11 +935,17 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         cmbPlacaMostrarPremio.removeAllItems();
         cmbPlacaAñadirPropietario.removeAllItems();
         cmbPlacaMostrarPropietario.removeAllItems();
+        cmbPlacaBorrarCarro.removeAllItems();
+        cmbPlacaBorrarPremio.removeAllItems();
+        cmbPlacaBorrarPropietario.removeAllItems();
         for(String x: placa){
             cmbCarroAñadirPremio.addItem(x);
             cmbPlacaMostrarPremio.addItem(x);
             cmbPlacaAñadirPropietario.addItem(x);
             cmbPlacaMostrarPropietario.addItem(x);
+            cmbPlacaBorrarCarro.addItem(x);
+            cmbPlacaBorrarPremio.addItem(x);
+            cmbPlacaBorrarPropietario.addItem(x);
         }
     }
     
@@ -784,11 +987,20 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbModeloCarro;
     private javax.swing.JComboBox cmbModeloMostrarCarro;
     private javax.swing.JComboBox cmbPlacaAñadirPropietario;
+    private javax.swing.JComboBox cmbPlacaBorrarCarro;
+    private javax.swing.JComboBox cmbPlacaBorrarPremio;
+    private javax.swing.JComboBox cmbPlacaBorrarPropietario;
     private javax.swing.JComboBox cmbPlacaMostrarPremio;
     private javax.swing.JComboBox cmbPlacaMostrarPropietario;
+    private javax.swing.JComboBox cmbPremioBorrarPremio;
+    private javax.swing.JComboBox cmbPropietarioBorrarPropietario;
     private javax.swing.JButton cmdAñadirCarro;
     private javax.swing.JButton cmdAñadirPremio;
     private javax.swing.JButton cmdAñadirPropietario;
+    private javax.swing.JButton cmdBorrarCarro;
+    private javax.swing.JButton cmdBorrarPremio;
+    private javax.swing.JButton cmdBorrarPropietario;
+    private javax.swing.JButton cmdBorrarTodo;
     private javax.swing.JButton cmdConnsultarPropietario;
     private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton cmdMostrarPremios;
@@ -814,7 +1026,12 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -826,9 +1043,14 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane tbpBorrarOpciones;
     private javax.swing.JTextArea txtAInfo;
     private javax.swing.JTextField txtCCAñadirPropietario;
     private javax.swing.JTextField txtCiudadAñadirPropietario;
