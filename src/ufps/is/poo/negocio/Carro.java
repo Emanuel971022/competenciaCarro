@@ -77,6 +77,32 @@ public class Carro{
         return false;
     }
     
+    public boolean borrarPropietario(int año, String cc){
+        ArrayList<Propietario> prop = propietarios.get(año);
+        for(Propietario x: prop)
+            if(x.getCc().equalsIgnoreCase(cc)){
+                prop.remove(x);
+                return true;
+            }
+        
+        return false;
+    }    
+    
+    public boolean borrarTodosPropietarios(int año, String cc){
+        ArrayList<Propietario> prop = propietarios.get(año);
+        for(Propietario x: prop)
+            if(x.getCc().equalsIgnoreCase(cc)){
+                prop.removeAll(prop);
+                return true;
+            }
+        
+        return false;
+    }
+    
+    public boolean borrarTodosPropietarios(String cc){
+        propietarios.clear();        
+        return true;
+    }
     
     //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
     /**
@@ -163,6 +189,15 @@ public class Carro{
         }
         
         return 0;
+    }
+    
+    public String concatenarPropietarios(int año){
+        String propietario = "";
+        ArrayList<Propietario> prop = propietarios.get(año);
+        for(Propietario p: prop)
+            propietario += p.getCc()+"~";
+        
+        return propietario;
     }
 
     //-------------------------GETTER'S Y SETTER'S----------------------------//

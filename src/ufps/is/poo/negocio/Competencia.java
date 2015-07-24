@@ -228,11 +228,50 @@ public class Competencia{
         return false;
     } 
     
+    /**
+     * Borra todos los premios de un carro
+     * @param placa placa del carro a borrar todos los premios
+     * @return retorna true si elimina bien todo
+     */
     public boolean borrarTodosPremios(String placa){
         Carro c = new Carro(placa);
         ArrayList<Premio> prem = copas.get(c);
         prem.clear();
         return true;
+    }
+    
+    /**
+     * Borra un propietario de un carro
+     * @param placa Placa del carro
+     * @param año Año de compra
+     * @param cc NIT del propietario
+     * @return Retorna true si elimina correctamente.
+     */
+    public boolean borrarPropietario(String placa, int año, String cc){
+        Carro c = new Carro(placa);
+        for(Carro x: copas.keySet())
+            if(x.equals(c))
+                return x.borrarPropietario(año, cc);
+        
+        return false;
+    }
+    
+    public boolean borrarTodosPropietario(String placa, int año, String cc){
+        Carro c = new Carro(placa);
+        for(Carro x: copas.keySet())
+            if(x.equals(c))
+                return x.borrarTodosPropietarios(año, cc);
+            
+        return false;
+    }
+    
+    public boolean borrarTodosPropietario(String placa, String cc){
+        Carro c = new Carro(placa);
+        for(Carro x: copas.keySet())
+            if(x.equals(c))
+                return x.borrarTodosPropietarios(cc);
+        
+        return false;
     }
     
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
@@ -256,8 +295,7 @@ public class Competencia{
             
         return ganadores;
     }
-            
-    //-----------------------REQUERIMIENTOS PARA VACACIONES--------------------//
+    
     /**
      * Este metodo imprime los premios de un propietario con todos los carros 
      * que haya tenido.
@@ -349,5 +387,15 @@ public class Competencia{
             premios += x.getEvento()+"-"+x.getAnio()+"~";
                 
         return premios;
+    }
+    
+    public String concatenarPropietarios(String placa, int año){
+        Carro car = new Carro(placa);
+        
+        for(Carro x: copas.keySet())
+            if(x.equals(car))
+                return x.concatenarPropietarios(año);
+            
+        return "";
     }
 }
