@@ -975,6 +975,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         String placa = cmbPlacaBorrarCarro.getSelectedItem().toString();
         if(competencia.borrarCarro(placa))
             Notificacion.alertaInformativo("Sistema", "Carro eliminado con exito");
+        else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
         
         llenarComboPlaca();
     }//GEN-LAST:event_cmdBorrarCarroActionPerformed
@@ -998,7 +1000,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         if(competencia.borrarPremio(placa, premio)){
             Notificacion.alertaInformativo("Sistema", "Premio eliminado con exito");
             cmbPlacaBorrarPremio.setSelectedIndex(0);
-        }            
+        }else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
     }//GEN-LAST:event_cmdBorrarPremioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1039,6 +1042,8 @@ public class competenciaCarroForm extends javax.swing.JFrame {
 
             if(competencia.borrarPropietario(placa, Integer.parseInt(anio), propietario))
                 Notificacion.alertaInformativo("Sistema", "Propietario eliminado con exito.");
+            else
+                Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
         }catch(NullPointerException npe){
             Notificacion.alertaError("Error", "Ese carro no tiene ningún propietario en ese año.");
         }finally{
@@ -1047,27 +1052,31 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdBorrarPropietarioActionPerformed
 
     private void cmdBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarTodoActionPerformed
-        // TODO add your handling code here:
+        if(competencia.borrarTodo())
+            Notificacion.alertaInformativo("Sistema", "Sistema formateado, todo ha sido borrado.");
+        
+        llenarComboPlaca();
     }//GEN-LAST:event_cmdBorrarTodoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try{    
-            String placa = cmbPlacaBorrarPropietario.getSelectedItem().toString();
-            String anio = cmbAñoBorrarPropietario.getSelectedItem().toString();
-            String cc = cmbPropietarioBorrarPropietario.getSelectedItem().toString();
+        String placa = cmbPlacaBorrarPropietario.getSelectedItem().toString();
+        String anio = cmbAñoBorrarPropietario.getSelectedItem().toString();
+        String cc = cmbPropietarioBorrarPropietario.getSelectedItem().toString();
 
-            if(competencia.borrarTodosPropietario(placa, Integer.parseInt(anio), cc))
-                Notificacion.alertaInformativo("Sistema", "Todos los propietarios del año "+anio+" eliminados");
-        }catch(NullPointerException npe){
-        }
+        if(competencia.borrarTodosPropietario(placa, Integer.parseInt(anio)))
+            Notificacion.alertaInformativo("Sistema", "Todos los propietarios del año "+anio+" eliminados");
+        else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void cmdEliminarTodosPropietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarTodosPropietariosActionPerformed
         String placa = cmbPlacaBorrarPropietario.getSelectedItem().toString();
         String cc = cmbPropietarioBorrarPropietario.getSelectedItem().toString();
         
-        if(competencia.borrarTodosPropietario(placa, cc))
+        if(competencia.borrarTodosPropietario(placa))
             Notificacion.alertaInformativo("Sistema", "Todos los propietarios eliminados");
+        else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
     }//GEN-LAST:event_cmdEliminarTodosPropietariosActionPerformed
 
     /**

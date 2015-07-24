@@ -27,6 +27,7 @@ import java.util.Map;
  * que interactuan con la GUI. Y algunos metodos de apoyo para los requerimientos
  * funcionales.
  * @author Emanuel Martinez Pinzon
+ * @version 1.4 24/07/15
  */
 public class Competencia{
     private HashMap<Carro, ArrayList<Premio>> copas;    
@@ -256,22 +257,43 @@ public class Competencia{
         return false;
     }
     
-    public boolean borrarTodosPropietario(String placa, int año, String cc){
+    /**
+     * Borra todos los propietarios de un carro en un año
+     * @param placa La placa del carro a eliminar
+     * @param año Año en el que borra todos los propietarios.
+     * @return Retorna el valor del metodo.
+     */
+    public boolean borrarTodosPropietario(String placa, int año){
         Carro c = new Carro(placa);
         for(Carro x: copas.keySet())
             if(x.equals(c))
-                return x.borrarTodosPropietarios(año, cc);
+                return x.borrarTodosPropietarios(año);
             
         return false;
     }
     
-    public boolean borrarTodosPropietario(String placa, String cc){
+    /**
+     * Borra todos los propietarios de un carro
+     * @param placa La placa del carro
+     * @return Retorna el valor que recibe de ejecutar el metodo borrarTodosPropietarios()
+     * de la clase carro.
+     */
+    public boolean borrarTodosPropietario(String placa){
         Carro c = new Carro(placa);
         for(Carro x: copas.keySet())
             if(x.equals(c))
-                return x.borrarTodosPropietarios(cc);
+                return x.borrarTodosPropietarios();
         
         return false;
+    }
+    
+    /**
+     * Elimina todos los carros, premios y propietarios de la aplicacion
+     * @return Retorna true, siempre va a limpiar todos los registros.
+     */
+    public boolean borrarTodo(){
+        copas.clear();
+        return true;
     }
     
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
@@ -389,6 +411,12 @@ public class Competencia{
         return premios;
     }
     
+    /**
+     * Concatena los propietrios de un carro en un año
+     * @param placa Placa del carro
+     * @param año Año en el que concatenara los propietarios
+     * @return Retorna el String con los NIT de los propietarios
+     */
     public String concatenarPropietarios(String placa, int año){
         Carro car = new Carro(placa);
         

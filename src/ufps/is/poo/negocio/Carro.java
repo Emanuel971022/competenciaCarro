@@ -77,6 +77,12 @@ public class Carro{
         return false;
     }
     
+    /**
+     * Elimina un propietario en un año.
+     * @param año Año en el que va a eliminar el propietario
+     * @param cc NIT del propietario
+     * @return Retorna true dado el caso elimine el propietario
+     */
     public boolean borrarPropietario(int año, String cc){
         ArrayList<Propietario> prop = propietarios.get(año);
         for(Propietario x: prop)
@@ -88,10 +94,15 @@ public class Carro{
         return false;
     }    
     
-    public boolean borrarTodosPropietarios(int año, String cc){
+    /**
+     * Elimina todos los propietarios de un año
+     * @param año Año en el que se borran todos los propietarios
+     * @return Retorna true si consigue eliminar todos los propietarios de un año
+     */
+    public boolean borrarTodosPropietarios(int año){
         ArrayList<Propietario> prop = propietarios.get(año);
-        for(Propietario x: prop)
-            if(x.getCc().equalsIgnoreCase(cc)){
+        if(prop != null)
+            for(Propietario x: prop){
                 prop.removeAll(prop);
                 return true;
             }
@@ -99,7 +110,11 @@ public class Carro{
         return false;
     }
     
-    public boolean borrarTodosPropietarios(String cc){
+    /**
+     * Elimina todos los propietarios de un carro.
+     * @return Retorna true porque siempre limpia el ArrayList
+     */
+    public boolean borrarTodosPropietarios(){
         propietarios.clear();        
         return true;
     }
@@ -191,6 +206,11 @@ public class Carro{
         return 0;
     }
     
+    /**
+     * Concatena el NIT de todos los propietarios y retorna una cadena con esa informacion.
+     * @param año Año en el cual concatena los propietarios
+     * @return Retorna un String con los NIT de los propietarios en un año
+     */
     public String concatenarPropietarios(int año){
         String propietario = "";
         ArrayList<Propietario> prop = propietarios.get(año);
