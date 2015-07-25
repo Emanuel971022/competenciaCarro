@@ -27,3 +27,4 @@ En este repositorio existen dos archivos 'Enunciado del problema' en formato .PD
 leer a fondo el problema que esta aplicación pretende resolver o editar el documento para realizar cambios en él.
 
 * En la raíz de este repositorio existe un archivo llamado 'testeo.txt' el cual contiene algunas notas sobre errores encontrados en el camino de desarrollo y la solución dada.
+* También existe un documento llamado ideas.txt con el que dejo algunas ideas que se me cruzan por la mente, allí está seguramente la idea de esta aplicación.
