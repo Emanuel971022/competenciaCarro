@@ -1,3 +1,7 @@
 Poder eliminar algun carro, premio o propietario borrando o migrando sus registros.
 
 Añadir opción para crear eventos de forma independiente y seleccionarlos mediante un combo.
+
+Poder editar la información de un carro, propietario o premio.
+
+Debo pensar en mejorar la forma en la que se muestra la interfaz, casi no me caben los componentes en ella
