@@ -20,13 +20,16 @@ import javax.swing.JPanel;
 import ufps.is.poo.negocio.Competencia;
 
 /**
- *
+ * Este es el formulario principal de la interfaz grafica de la aplicacion.
  * @author Emanuel Martinez Pinzon
  */
 public class competenciaCarroFrame extends javax.swing.JFrame {
 
     private Competencia competenciaCarro;
-    private JPanel registrarCarro; 
+    private JPanel bienvenida,
+            registrarCarro, registrarPremio, registrarPropietario,
+            modificarCarro, modificarPremio, modificarPropietario,
+            eliminarCarro, eliminarPremio, eliminarPropietario;
     
     public competenciaCarroFrame() {
         initComponents();
@@ -71,6 +74,11 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         jMenu2.setText("Inicio");
 
         jmBienvenida.setText("Bienvenida");
+        jmBienvenida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmBienvenidaActionPerformed(evt);
+            }
+        });
         jMenu2.add(jmBienvenida);
 
         jmSalir.setText("Salir");
@@ -96,9 +104,19 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         jMenu5.add(jmAñadirCarro);
 
         jmAñadirPremio.setText("Añadir premio");
+        jmAñadirPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAñadirPremioActionPerformed(evt);
+            }
+        });
         jMenu5.add(jmAñadirPremio);
 
         jmAñadirPropietario.setText("Añadir propietario");
+        jmAñadirPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAñadirPropietarioActionPerformed(evt);
+            }
+        });
         jMenu5.add(jmAñadirPropietario);
 
         jMenu1.add(jMenu5);
@@ -106,12 +124,27 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         jMenu6.setText("Actualizar");
 
         jmModificarCarro.setText("Modificar carro");
+        jmModificarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmModificarCarroActionPerformed(evt);
+            }
+        });
         jMenu6.add(jmModificarCarro);
 
         jmModificarPremio.setText("Modificar premio");
+        jmModificarPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmModificarPremioActionPerformed(evt);
+            }
+        });
         jMenu6.add(jmModificarPremio);
 
         jmModificarPropietario.setText("Modificar propietario");
+        jmModificarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmModificarPropietarioActionPerformed(evt);
+            }
+        });
         jMenu6.add(jmModificarPropietario);
 
         jMenu1.add(jMenu6);
@@ -119,12 +152,27 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         jMenu7.setText("Eliminar");
 
         jmEliminarCarro.setText("Eliminar carro");
+        jmEliminarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmEliminarCarroActionPerformed(evt);
+            }
+        });
         jMenu7.add(jmEliminarCarro);
 
         jmEliminarPremio.setText("Eliminar premio");
+        jmEliminarPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmEliminarPremioActionPerformed(evt);
+            }
+        });
         jMenu7.add(jmEliminarPremio);
 
         jmEliminarPropietario.setText("Eliminar propietario");
+        jmEliminarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmEliminarPropietarioActionPerformed(evt);
+            }
+        });
         jMenu7.add(jmEliminarPropietario);
 
         jMenu1.add(jMenu7);
@@ -153,10 +201,93 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jmSalirActionPerformed
 
+    private void jmAñadirPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAñadirPremioActionPerformed
+        remover();
+        registrarPremio = new registrarPremioPanel(competenciaCarro);
+        getContentPane().add(registrarPremio);
+        pack();
+    }//GEN-LAST:event_jmAñadirPremioActionPerformed
+
+    private void jmAñadirPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAñadirPropietarioActionPerformed
+        remover();
+        registrarPropietario = new registrarPropietarioPanel(competenciaCarro);
+        getContentPane().add(registrarPropietario);
+        pack();
+    }//GEN-LAST:event_jmAñadirPropietarioActionPerformed
+
+    private void jmModificarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmModificarCarroActionPerformed
+        remover();
+        modificarCarro = new modificarCarroPanel(competenciaCarro);
+        getContentPane().add(modificarCarro);
+        pack();
+    }//GEN-LAST:event_jmModificarCarroActionPerformed
+
+    private void jmModificarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmModificarPremioActionPerformed
+        remover();
+        modificarPremio = new modificarPremioPanel(competenciaCarro);
+        getContentPane().add(modificarPremio);
+        pack();
+    }//GEN-LAST:event_jmModificarPremioActionPerformed
+
+    private void jmModificarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmModificarPropietarioActionPerformed
+        remover();
+        modificarPropietario = new modificarPropietarioPanel(competenciaCarro);
+        getContentPane().add(modificarPropietario);
+        pack();
+    }//GEN-LAST:event_jmModificarPropietarioActionPerformed
+
+    private void jmBienvenidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBienvenidaActionPerformed
+        remover();
+        bienvenida = new bienvenidaPanel();
+        getContentPane().add(bienvenida);
+        pack();
+    }//GEN-LAST:event_jmBienvenidaActionPerformed
+
+    private void jmEliminarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEliminarCarroActionPerformed
+        remover();
+        eliminarCarro = new eliminarCarroPanel(competenciaCarro);
+        getContentPane().add(eliminarCarro);
+        pack();
+    }//GEN-LAST:event_jmEliminarCarroActionPerformed
+
+    private void jmEliminarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEliminarPremioActionPerformed
+        remover();
+        eliminarPremio = new eliminarPremioPanel(competenciaCarro);
+        getContentPane().add(eliminarPremio);
+        pack();
+    }//GEN-LAST:event_jmEliminarPremioActionPerformed
+
+    private void jmEliminarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEliminarPropietarioActionPerformed
+        remover();
+        eliminarPropietario = new eliminarPropietarioPanel(competenciaCarro);
+        getContentPane().add(eliminarPropietario);
+        pack();
+    }//GEN-LAST:event_jmEliminarPropietarioActionPerformed
+
     private void remover(){
-        if(registrarCarro != null){
+        if(bienvenida != null)
+            remove(bienvenida);
+        
+        if(registrarCarro != null)
             remove(registrarCarro);
-        }
+        if(registrarPremio != null)
+            remove(registrarPremio);
+        if(registrarPropietario != null)
+            remove(registrarPropietario);
+        
+        if(modificarCarro != null)
+            remove(modificarCarro);
+        if(modificarPremio != null)
+            remove(modificarPremio);
+        if(modificarPropietario != null)
+            remove(modificarPropietario);
+        
+        if(eliminarCarro != null)
+            remove(eliminarCarro);
+        if(eliminarPremio != null)
+            remove(eliminarPremio);
+        if(eliminarPropietario != null)
+            remove(eliminarPropietario);
     }
     
     public static void main(String args[]) {
