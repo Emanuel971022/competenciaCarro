@@ -122,11 +122,31 @@
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbPlacaEliminarPropietarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbA&#xf1;oEliminarPropietario">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="16">
+            <StringItem index="0" value="2000"/>
+            <StringItem index="1" value="2001"/>
+            <StringItem index="2" value="2002"/>
+            <StringItem index="3" value="2003"/>
+            <StringItem index="4" value="2004"/>
+            <StringItem index="5" value="2005"/>
+            <StringItem index="6" value="2006"/>
+            <StringItem index="7" value="2007"/>
+            <StringItem index="8" value="2008"/>
+            <StringItem index="9" value="2009"/>
+            <StringItem index="10" value="2010"/>
+            <StringItem index="11" value="2011"/>
+            <StringItem index="12" value="2012"/>
+            <StringItem index="13" value="2013"/>
+            <StringItem index="14" value="2014"/>
+            <StringItem index="15" value="2015"/>
+          </StringArray>
         </Property>
       </Properties>
     </Component>
@@ -141,16 +161,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEliminarPropietarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cmdEliminarTodosPropietarios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Todos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEliminarTodosPropietariosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cmdEliminarTodosPropietarioA&#xf1;o">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEliminarTodosPropietarioA&#xf1;oActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

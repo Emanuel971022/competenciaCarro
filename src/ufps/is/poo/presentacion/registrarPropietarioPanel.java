@@ -17,6 +17,8 @@
 package ufps.is.poo.presentacion;
 
 import ufps.is.poo.negocio.Competencia;
+import static ufps.is.poo.presentacion.competenciaCarroFrame.isNumeric;
+import ufps.is.poo.util.Notificacion;
 
 /**
  * Este es el panel para registrar propietarios de la interfaz grafica de la aplicacion.
@@ -27,8 +29,9 @@ public class registrarPropietarioPanel extends javax.swing.JPanel {
     private Competencia competencia;
     
     public registrarPropietarioPanel(Competencia competencia) {
-        initComponents();
         this.competencia = competencia;
+        initComponents();
+        llenarCombos();
     }
 
     @SuppressWarnings("unchecked")
@@ -79,6 +82,11 @@ public class registrarPropietarioPanel extends javax.swing.JPanel {
         cmbAñoPropietario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
 
         cmdRegistrarPropietario.setText("Registrar");
+        cmdRegistrarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRegistrarPropietarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -154,7 +162,54 @@ public class registrarPropietarioPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdRegistrarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRegistrarPropietarioActionPerformed
+        String placa = cmbCarrodePropietario.getSelectedItem().toString();
+        String nombre = txtNombrePropietario.getText();
+        String cc = txtCCPropietario.getText();
+        String direccion = txtDireccionPropietario.getText();
+        String ciudad = txtCiudadPropietario.getText();
+        String telefono = txtTelefonoPropietario.getText();
+        String año = cmbAñoPropietario.getSelectedItem().toString();
+        
+        if(nombre.isEmpty() || cc.isEmpty() || direccion.isEmpty() || 
+                ciudad.isEmpty() || telefono.isEmpty()){
+            Notificacion.alertaAtencion("Atención", "Debe ingresar los datos");
+            return;
+        }
+        
+        if(!isNumeric(cc) || !isNumeric(telefono)){
+            Notificacion.alertaError("Error", "Debe ingresar números en cc y telefono");
+            return;
+        }
+        
+        boolean value;
+        try {
+            value = competencia.agregarPropietario(placa, Integer.parseInt(año),
+                    nombre, cc, direccion, ciudad, telefono);
+        } catch (Exception ex) {
+            Notificacion.alertaError("Error", "Ya existe un propietario con ese CC");
+            return;
+        }
+        
+        if(value)
+            Notificacion.alertaInformativo("Sistema", "Propietario añadido con exito");
+        else
+            Notificacion.alertaError("Error", "Error en el registro");
+        
+        txtNombrePropietario.setText("");
+        txtCCPropietario.setText("");
+        txtDireccionPropietario.setText("");
+        txtCiudadPropietario.setText("");
+        txtTelefonoPropietario.setText("");
+    }//GEN-LAST:event_cmdRegistrarPropietarioActionPerformed
 
+    private void llenarCombos(){
+        String []nombres = competencia.concatenarplacas().split("~");
+        cmbCarrodePropietario.removeAllItems();
+        for(String x: nombres)
+            cmbCarrodePropietario.addItem(x);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbAñoPropietario;
     private javax.swing.JComboBox cmbCarrodePropietario;

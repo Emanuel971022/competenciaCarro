@@ -107,6 +107,9 @@
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbPlacaEliminarPremioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbPremioEliminarPremio">
       <Properties>
@@ -119,11 +122,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEliminarPremiosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cmdEliminarTodosPremios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar todos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEliminarTodosPremiosActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

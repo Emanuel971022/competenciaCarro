@@ -18,6 +18,7 @@ package ufps.is.poo.presentacion;
 
 import javax.swing.JPanel;
 import ufps.is.poo.negocio.Competencia;
+import ufps.is.poo.util.Notificacion;
 
 /**
  * Este es el formulario principal de la interfaz grafica de la aplicacion.
@@ -177,6 +178,11 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         jMenu7.add(jmEliminarPropietario);
 
         jMenuItem1.setText("Eliminar todo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem1);
 
         jMenu1.add(jMenu7);
@@ -268,6 +274,11 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         pack();
     }//GEN-LAST:event_jmEliminarPropietarioActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        if(competenciaCarro.borrarTodo())
+            Notificacion.alertaInformativo("Sistema", "Sistema formateado, todo ha sido borrado.");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     private void remover(){
         if(bienvenida != null)
             remove(bienvenida);
@@ -292,6 +303,21 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
             remove(eliminarPremio);
         if(eliminarPropietario != null)
             remove(eliminarPropietario);
+    }
+    
+    /**
+     * Comprueba si el String que recibe contiene puros nuemros en Long
+     * @param num Un numero en tipo de dato String
+     * @return Si contiene puros numeros retorna true
+     */
+    protected static boolean isNumeric(String num){
+        try{
+            Long.parseLong(num);
+        }catch(NumberFormatException nfe){
+            return false;
+        }
+        
+        return true;
     }
     
     public static void main(String args[]) {

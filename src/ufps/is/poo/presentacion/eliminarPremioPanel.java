@@ -17,6 +17,7 @@
 package ufps.is.poo.presentacion;
 
 import ufps.is.poo.negocio.Competencia;
+import ufps.is.poo.util.Notificacion;
 
 /**
  * Este es el panel para eliminar premios de la interfaz grafica de la aplicacion.
@@ -27,8 +28,9 @@ public class eliminarPremioPanel extends javax.swing.JPanel {
     private Competencia competencia;
     
     public eliminarPremioPanel(Competencia competencia) {
-        initComponents();
         this.competencia = competencia;
+        initComponents();
+        llenarCombos();
     }
 
     @SuppressWarnings("unchecked")
@@ -57,9 +59,25 @@ public class eliminarPremioPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Premio: ");
 
+        cmbPlacaEliminarPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPlacaEliminarPremioActionPerformed(evt);
+            }
+        });
+
         cmdEliminarPremios.setText("Eliminar");
+        cmdEliminarPremios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarPremiosActionPerformed(evt);
+            }
+        });
 
         cmdEliminarTodosPremios.setText("Eliminar todos");
+        cmdEliminarTodosPremios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarTodosPremiosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,6 +126,38 @@ public class eliminarPremioPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdEliminarPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarPremiosActionPerformed
+        String placa = cmbPlacaEliminarPremio.getSelectedItem().toString();
+        String premio = cmbPremioEliminarPremio.getSelectedItem().toString();
+        if(competencia.borrarPremio(placa, premio)){
+            Notificacion.alertaInformativo("Sistema", "Premio eliminado con exito");
+            cmbPlacaEliminarPremio.setSelectedIndex(0);
+        }else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
+    }//GEN-LAST:event_cmdEliminarPremiosActionPerformed
+
+    private void cmbPlacaEliminarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPlacaEliminarPremioActionPerformed
+        String placa = cmbPlacaEliminarPremio.getSelectedItem().toString();
+        String[] premios = competencia.concatenarPremios(placa).split("~");
+        cmbPremioEliminarPremio.removeAllItems();
+        for(String x: premios)
+            cmbPremioEliminarPremio.addItem(x);
+    }//GEN-LAST:event_cmbPlacaEliminarPremioActionPerformed
+
+    private void cmdEliminarTodosPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarTodosPremiosActionPerformed
+        String placa = cmbPlacaEliminarPremio.getSelectedItem().toString();
+        if(competencia.borrarTodosPremios(placa)){
+            Notificacion.alertaInformativo("Sistema", "Se han borrado todos los premios de este carro.");
+            cmbPlacaEliminarPremio.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_cmdEliminarTodosPremiosActionPerformed
+
+    private void llenarCombos(){
+        String []nombres = competencia.concatenarplacas().split("~");
+        cmbPlacaEliminarPremio.removeAllItems();
+        for(String x: nombres)
+                cmbPlacaEliminarPremio.addItem(x);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbPlacaEliminarPremio;

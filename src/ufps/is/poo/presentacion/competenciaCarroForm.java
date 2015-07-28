@@ -1042,6 +1042,13 @@ public class competenciaCarroForm extends javax.swing.JFrame {
         }finally{
             cmdBorrarPremio.setEnabled(true);
         }
+        
+        /*
+        try-catch-finally obsoleto pero no testeado, el metodo concatenarPremios()
+        ahora tiene un if que no permite concatenar algo nulo -evitando así la
+        excepción- aquí no voy a quitar ese segmento de código, lo haré en la nueva
+        interfaz.        
+        */
     }//GEN-LAST:event_cmbPlacaBorrarPremioActionPerformed
 
     private void cmdBorrarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarPremioActionPerformed
@@ -1082,6 +1089,13 @@ public class competenciaCarroForm extends javax.swing.JFrame {
             cmbPropietarioBorrarPropietario.addItem((Object) "No hay propietarios");
             cmdBorrarPropietario.setEnabled(false);
         }
+        
+        /*
+        try-catch-finally obsoleto pero no testeado, el metodo concatenarPremios()
+        ahora tiene un if que no permite concatenar algo nulo -evitando así la
+        excepción- aquí no voy a quitar ese segmento de código, lo haré en la nueva
+        interfaz.        
+        */
     }//GEN-LAST:event_cmbAñoBorrarPropietarioActionPerformed
 
     private void cmdBorrarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarPropietarioActionPerformed
@@ -1120,7 +1134,6 @@ public class competenciaCarroForm extends javax.swing.JFrame {
 
     private void cmdEliminarTodosPropietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarTodosPropietariosActionPerformed
         String placa = cmbPlacaBorrarPropietario.getSelectedItem().toString();
-        String cc = cmbPropietarioBorrarPropietario.getSelectedItem().toString();
         
         if(competencia.borrarTodosPropietario(placa))
             Notificacion.alertaInformativo("Sistema", "Todos los propietarios eliminados");

@@ -85,11 +85,12 @@ public class Carro{
      */
     public boolean borrarPropietario(int año, String cc){
         ArrayList<Propietario> prop = propietarios.get(año);
-        for(Propietario x: prop)
-            if(x.getCc().equalsIgnoreCase(cc)){
-                prop.remove(x);
-                return true;
-            }
+        if(prop != null)
+            for(Propietario x: prop)
+                if(x.getCc().equalsIgnoreCase(cc)){
+                    prop.remove(x);
+                    return true;
+                }
         
         return false;
     }    
@@ -214,8 +215,9 @@ public class Carro{
     public String concatenarPropietarios(int año){
         String propietario = "";
         ArrayList<Propietario> prop = propietarios.get(año);
-        for(Propietario p: prop)
-            propietario += p.getCc()+"~";
+        if(prop != null)
+            for(Propietario p: prop)
+                propietario += p.getCc()+"~";
         
         return propietario;
     }

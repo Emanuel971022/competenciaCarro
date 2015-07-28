@@ -405,8 +405,9 @@ public class Competencia{
         String premios = "";
         Carro c = new Carro(placa);
         ArrayList<Premio> prem = copas.get(c);
-        for(Premio x: prem)
-            premios += x.getEvento()+"-"+x.getAnio()+"~";
+        if(prem != null)
+            for(Premio x: prem)
+                premios += x.getEvento()+"-"+x.getAnio()+"~";
                 
         return premios;
     }

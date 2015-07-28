@@ -17,6 +17,7 @@
 package ufps.is.poo.presentacion;
 
 import ufps.is.poo.negocio.Competencia;
+import ufps.is.poo.util.Notificacion;
 
 /**
  *
@@ -62,6 +63,11 @@ public class registrarCarroPanel extends javax.swing.JPanel {
         cmbModeloRegistrarCarro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
 
         cmdRegistrarCarro.setText("Registrar");
+        cmdRegistrarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRegistrarCarroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -112,6 +118,25 @@ public class registrarCarroPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdRegistrarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRegistrarCarroActionPerformed
+        String placa = txtPlaca.getText();
+        String marca = txtMarca.getText();
+        String modelo = cmbModeloRegistrarCarro.getSelectedItem().toString();
+        
+        if(placa.isEmpty() || marca.isEmpty()){
+            Notificacion.alertaAtencion("Alerta!!!", "Ingrese todos los datos");
+            return;
+        }
+        
+        if(competencia.agregarCarro(placa, marca, Integer.parseInt(modelo)))
+            Notificacion.alertaInformativo("Sistema", "Registro exitoso");
+        else
+            Notificacion.alertaError("Error", "No se ha podido realizar el registro");
+        
+        txtPlaca.setText("");
+        txtMarca.setText("");
+    }//GEN-LAST:event_cmdRegistrarCarroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

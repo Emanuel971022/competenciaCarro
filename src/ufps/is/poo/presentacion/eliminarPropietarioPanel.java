@@ -17,18 +17,20 @@
 package ufps.is.poo.presentacion;
 
 import ufps.is.poo.negocio.Competencia;
+import ufps.is.poo.util.Notificacion;
 
 /**
  * Este es el panel para eliminar propietarios de la interfaz grafica de la aplicacion.
  * @author Emanuel Martinez Pinzon
  */
-public class eliminarPropietarioPanel extends javax.swing.JPanel {
+public final class eliminarPropietarioPanel extends javax.swing.JPanel {
 
     private Competencia competencia;
     
    public eliminarPropietarioPanel(Competencia competencia) {
-        initComponents();
         this.competencia = competencia;
+        initComponents();
+        llenarCombo();
     }
 
     /**
@@ -67,11 +69,34 @@ public class eliminarPropietarioPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Año: ");
 
+        cmbPlacaEliminarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPlacaEliminarPropietarioActionPerformed(evt);
+            }
+        });
+
+        cmbAñoEliminarPropietario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
+
         cmdEliminarPropietario.setText("Eliminar");
+        cmdEliminarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarPropietarioActionPerformed(evt);
+            }
+        });
 
         cmdEliminarTodosPropietarios.setText("Todos");
+        cmdEliminarTodosPropietarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarTodosPropietariosActionPerformed(evt);
+            }
+        });
 
         cmdEliminarTodosPropietarioAño.setText("Año");
+        cmdEliminarTodosPropietarioAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarTodosPropietarioAñoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,6 +154,51 @@ public class eliminarPropietarioPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdEliminarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarPropietarioActionPerformed
+        String placa = cmbPlacaEliminarPropietario.getSelectedItem().toString();
+        String anio = cmbAñoEliminarPropietario.getSelectedItem().toString();
+        String propietario = cmbPropietarioEliminarPropietario.getSelectedItem().toString();
+
+        if(competencia.borrarPropietario(placa, Integer.parseInt(anio), propietario))
+            Notificacion.alertaInformativo("Sistema", "Propietario eliminado con exito.");
+        else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
+    }//GEN-LAST:event_cmdEliminarPropietarioActionPerformed
+
+    private void cmdEliminarTodosPropietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarTodosPropietariosActionPerformed
+        String placa = cmbPlacaEliminarPropietario.getSelectedItem().toString();
+        
+        if(competencia.borrarTodosPropietario(placa))
+            Notificacion.alertaInformativo("Sistema", "Todos los propietarios eliminados");
+        else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
+    }//GEN-LAST:event_cmdEliminarTodosPropietariosActionPerformed
+
+    private void cmdEliminarTodosPropietarioAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarTodosPropietarioAñoActionPerformed
+        String placa = cmbPlacaEliminarPropietario.getSelectedItem().toString();
+        String anio = cmbAñoEliminarPropietario.getSelectedItem().toString();
+
+        if(competencia.borrarTodosPropietario(placa, Integer.parseInt(anio)))
+            Notificacion.alertaInformativo("Sistema", "Todos los propietarios del año "+anio+" eliminados");
+        else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
+    }//GEN-LAST:event_cmdEliminarTodosPropietarioAñoActionPerformed
+
+    private void cmbPlacaEliminarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPlacaEliminarPropietarioActionPerformed
+        String placa = cmbPlacaEliminarPropietario.getSelectedItem().toString();
+        String anio = cmbAñoEliminarPropietario.getSelectedItem().toString();
+        String []propietario = competencia.concatenarPropietarios(placa, Integer.parseInt(anio)).split("~");
+        cmbPropietarioEliminarPropietario.removeAllItems();
+        for(String x: propietario)
+            cmbPropietarioEliminarPropietario.addItem(x);
+    }//GEN-LAST:event_cmbPlacaEliminarPropietarioActionPerformed
+
+    public void llenarCombo(){
+        String []nombres = competencia.concatenarplacas().split("~");
+        cmbPlacaEliminarPropietario.removeAllItems();
+        for(String x: nombres)
+            cmbPlacaEliminarPropietario.addItem(x);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbAñoEliminarPropietario;

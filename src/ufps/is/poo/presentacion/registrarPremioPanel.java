@@ -17,6 +17,8 @@
 package ufps.is.poo.presentacion;
 
 import ufps.is.poo.negocio.Competencia;
+import static ufps.is.poo.presentacion.competenciaCarroFrame.isNumeric;
+import ufps.is.poo.util.Notificacion;
 
 /**
  * Este es el panel de la interfaz grafica para registrar premios al sistema.
@@ -27,15 +29,16 @@ public class registrarPremioPanel extends javax.swing.JPanel {
     private Competencia competencia;
 
     public registrarPremioPanel(Competencia competencia) {
-        initComponents();
         this.competencia = competencia;
+        initComponents();
+        llenarCombos();
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cmbCarroAñadirPremio = new javax.swing.JComboBox();
+        cmbPlacaAñadirPremio = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -67,6 +70,11 @@ public class registrarPremioPanel extends javax.swing.JPanel {
         cmbAñoPremio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
 
         cmdRegistrarPremio.setText("Registrar");
+        cmdRegistrarPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRegistrarPremioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,7 +94,7 @@ public class registrarPremioPanel extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbCarroAñadirPremio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbPlacaAñadirPremio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmbAñoPremio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPuestoPremio)
                             .addComponent(txtEventoPremio)))
@@ -105,7 +113,7 @@ public class registrarPremioPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cmbCarroAñadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbPlacaAñadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -124,10 +132,50 @@ public class registrarPremioPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdRegistrarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRegistrarPremioActionPerformed
+        String placa = cmbPlacaAñadirPremio.getSelectedItem().toString();
+        String anio = cmbAñoPremio.getSelectedItem().toString();
+        String puesto = txtPuestoPremio.getText();
+        String evento = txtEventoPremio.getText();
+        
+        if(anio.isEmpty() || puesto.isEmpty() || evento.isEmpty()){
+            Notificacion.alertaAtencion("Alerta!!!", "Debe ingresar los datos");
+            return;
+        }
+        
+        if(!isNumeric(anio) || !isNumeric(puesto)){
+            Notificacion.alertaAtencion("Alerta!!!", "Debe ingresar los números");
+            return;
+        }
+        
+        boolean val;
+        try{
+            val = competencia.registrarPremioACarro(placa, Integer.parseInt(anio),
+                    Integer.parseInt(puesto), evento);
+        }catch(Exception ex) {
+            Notificacion.alertaError("Error", "Ya existe un premio de ese evento con esa misma fecha");
+            return;
+        }
+        
+        if(val)
+            Notificacion.alertaInformativo("Sistema", "Premio agregado con exito");
+        else
+            Notificacion.alertaError("Error", "Ocurrio un error al realizar el registro");
+        
+        txtEventoPremio.setText("");
+        txtPuestoPremio.setText("");
+    }//GEN-LAST:event_cmdRegistrarPremioActionPerformed
+
+    private void llenarCombos(){
+        String []carros = competencia.concatenarplacas().split("~");
+        cmbPlacaAñadirPremio.removeAllItems();
+        for(String x: carros)
+            cmbPlacaAñadirPremio.addItem(x);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbAñoPremio;
-    private javax.swing.JComboBox cmbCarroAñadirPremio;
+    private javax.swing.JComboBox cmbPlacaAñadirPremio;
     private javax.swing.JButton cmdRegistrarPremio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

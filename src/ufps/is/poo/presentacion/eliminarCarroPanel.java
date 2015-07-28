@@ -17,6 +17,7 @@
 package ufps.is.poo.presentacion;
 
 import ufps.is.poo.negocio.Competencia;
+import ufps.is.poo.util.Notificacion;
 
 /**
  * Este es el panel para eliminar carros de la interfaz grafica de la aplicacion.
@@ -27,8 +28,9 @@ public class eliminarCarroPanel extends javax.swing.JPanel {
     private Competencia competencia;
     
     public eliminarCarroPanel(Competencia competencia) {
-        initComponents();
         this.competencia = competencia;
+        initComponents();
+        llenarCombos();
     }
 
     /**
@@ -58,6 +60,11 @@ public class eliminarCarroPanel extends javax.swing.JPanel {
         jLabel3.setText("Placa: ");
 
         cmdEliminarCarro.setText("Eliminar");
+        cmdEliminarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarCarroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -95,6 +102,20 @@ public class eliminarCarroPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdEliminarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarCarroActionPerformed
+        String placa = cmbPlacaEliminarCarro.getSelectedItem().toString();
+        if(competencia.borrarCarro(placa))
+            Notificacion.alertaInformativo("Sistema", "Carro eliminado con exito");
+        else
+            Notificacion.alertaAtencion("Sistema", "Algo no se ha hecho bien y no se han efectuado cambios");
+    }//GEN-LAST:event_cmdEliminarCarroActionPerformed
+
+    private void llenarCombos(){
+        String []nombres = competencia.concatenarplacas().split("~");
+        cmbPlacaEliminarCarro.removeAllItems();
+        for(String x: nombres)
+            cmbPlacaEliminarCarro.addItem(x);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbPlacaEliminarCarro;

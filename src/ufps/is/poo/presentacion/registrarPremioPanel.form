@@ -36,7 +36,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cmbCarroAñadirPremio" max="32767" attributes="0"/>
+                          <Component id="cmbPlacaAñadirPremio" max="32767" attributes="0"/>
                           <Component id="cmbAñoPremio" max="32767" attributes="0"/>
                           <Component id="txtPuestoPremio" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtEventoPremio" alignment="0" max="32767" attributes="0"/>
@@ -61,7 +61,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbCarroAñadirPremio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbPlacaAñadirPremio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -86,7 +86,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="cmbCarroA&#xf1;adirPremio">
+    <Component class="javax.swing.JComboBox" name="cmbPlacaA&#xf1;adirPremio">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -160,6 +160,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdRegistrarPremioActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
