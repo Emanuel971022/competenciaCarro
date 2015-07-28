@@ -62,6 +62,7 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         jmEliminarCarro = new javax.swing.JMenuItem();
         jmEliminarPremio = new javax.swing.JMenuItem();
         jmEliminarPropietario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
@@ -174,6 +175,9 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
             }
         });
         jMenu7.add(jmEliminarPropietario);
+
+        jMenuItem1.setText("Eliminar todo");
+        jMenu7.add(jMenuItem1);
 
         jMenu1.add(jMenu7);
 
@@ -328,6 +332,7 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;

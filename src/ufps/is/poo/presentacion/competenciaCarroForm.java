@@ -844,7 +844,7 @@ public class competenciaCarroForm extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -1111,7 +1111,6 @@ public class competenciaCarroForm extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String placa = cmbPlacaBorrarPropietario.getSelectedItem().toString();
         String anio = cmbAñoBorrarPropietario.getSelectedItem().toString();
-        String cc = cmbPropietarioBorrarPropietario.getSelectedItem().toString();
 
         if(competencia.borrarTodosPropietario(placa, Integer.parseInt(anio)))
             Notificacion.alertaInformativo("Sistema", "Todos los propietarios del año "+anio+" eliminados");
