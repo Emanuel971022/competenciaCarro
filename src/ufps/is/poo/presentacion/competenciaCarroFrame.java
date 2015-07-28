@@ -30,7 +30,8 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
     private JPanel bienvenida,
             registrarCarro, registrarPremio, registrarPropietario,
             modificarCarro, modificarPremio, modificarPropietario,
-            eliminarCarro, eliminarPremio, eliminarPropietario;
+            eliminarCarro, eliminarPremio, eliminarPropietario,
+            consultasPanel;
     
     public competenciaCarroFrame() {
         initComponents();
@@ -64,7 +65,8 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         jmEliminarPremio = new javax.swing.JMenuItem();
         jmEliminarPropietario = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        jmConsultas = new javax.swing.JMenu();
+        jmConsultarSistema = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         jMenuItem4.setText("jMenuItem4");
@@ -189,8 +191,22 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Consultas");
-        jMenuBar1.add(jMenu3);
+        jmConsultas.setText("Consultas");
+        jmConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmConsultasActionPerformed(evt);
+            }
+        });
+
+        jmConsultarSistema.setText("Realizar consultas");
+        jmConsultarSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmConsultarSistemaActionPerformed(evt);
+            }
+        });
+        jmConsultas.add(jmConsultarSistema);
+
+        jMenuBar1.add(jmConsultas);
 
         jMenu4.setText("Ayuda");
         jMenuBar1.add(jMenu4);
@@ -204,7 +220,7 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         remover();
         registrarCarro = new registrarCarroPanel(competenciaCarro);
         getContentPane().add(registrarCarro);
-        pack();
+        montar();
     }//GEN-LAST:event_jmAñadirCarroActionPerformed
 
     private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
@@ -215,63 +231,63 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
         remover();
         registrarPremio = new registrarPremioPanel(competenciaCarro);
         getContentPane().add(registrarPremio);
-        pack();
+        montar();
     }//GEN-LAST:event_jmAñadirPremioActionPerformed
 
     private void jmAñadirPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAñadirPropietarioActionPerformed
         remover();
         registrarPropietario = new registrarPropietarioPanel(competenciaCarro);
         getContentPane().add(registrarPropietario);
-        pack();
+        montar();
     }//GEN-LAST:event_jmAñadirPropietarioActionPerformed
 
     private void jmModificarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmModificarCarroActionPerformed
         remover();
         modificarCarro = new modificarCarroPanel(competenciaCarro);
         getContentPane().add(modificarCarro);
-        pack();
+        montar();
     }//GEN-LAST:event_jmModificarCarroActionPerformed
 
     private void jmModificarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmModificarPremioActionPerformed
         remover();
         modificarPremio = new modificarPremioPanel(competenciaCarro);
         getContentPane().add(modificarPremio);
-        pack();
+        montar();
     }//GEN-LAST:event_jmModificarPremioActionPerformed
 
     private void jmModificarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmModificarPropietarioActionPerformed
         remover();
         modificarPropietario = new modificarPropietarioPanel(competenciaCarro);
         getContentPane().add(modificarPropietario);
-        pack();
+        montar();
     }//GEN-LAST:event_jmModificarPropietarioActionPerformed
 
     private void jmBienvenidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBienvenidaActionPerformed
         remover();
         bienvenida = new bienvenidaPanel();
         getContentPane().add(bienvenida);
-        pack();
+        montar();
     }//GEN-LAST:event_jmBienvenidaActionPerformed
 
     private void jmEliminarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEliminarCarroActionPerformed
         remover();
         eliminarCarro = new eliminarCarroPanel(competenciaCarro);
         getContentPane().add(eliminarCarro);
-        pack();
+        montar();
     }//GEN-LAST:event_jmEliminarCarroActionPerformed
 
     private void jmEliminarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEliminarPremioActionPerformed
         remover();
         eliminarPremio = new eliminarPremioPanel(competenciaCarro);
         getContentPane().add(eliminarPremio);
-        pack();
+        montar();
     }//GEN-LAST:event_jmEliminarPremioActionPerformed
 
     private void jmEliminarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEliminarPropietarioActionPerformed
         remover();
         eliminarPropietario = new eliminarPropietarioPanel(competenciaCarro);
         getContentPane().add(eliminarPropietario);
-        pack();
+        montar();
     }//GEN-LAST:event_jmEliminarPropietarioActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -279,6 +295,20 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
             Notificacion.alertaInformativo("Sistema", "Sistema formateado, todo ha sido borrado.");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jmConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmConsultasActionPerformed
+        
+    }//GEN-LAST:event_jmConsultasActionPerformed
+
+    private void jmConsultarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmConsultarSistemaActionPerformed
+        remover();
+        consultasPanel = new consultasPanel(competenciaCarro);
+        getContentPane().add(consultasPanel);
+        montar();
+    }//GEN-LAST:event_jmConsultarSistemaActionPerformed
+
+    /**
+     * Si el panel esta lo quita.
+     */
     private void remover(){
         if(bienvenida != null)
             remove(bienvenida);
@@ -303,6 +333,17 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
             remove(eliminarPremio);
         if(eliminarPropietario != null)
             remove(eliminarPropietario);
+        
+        if(consultasPanel != null)
+            remove(consultasPanel);
+    }
+    
+    /**
+     * Ejecuta el metodo pack() y centra el formulario.
+     */
+    public void montar(){
+        pack();
+        setLocationRelativeTo(null);
     }
     
     /**
@@ -352,7 +393,6 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -366,6 +406,8 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmAñadirPremio;
     private javax.swing.JMenuItem jmAñadirPropietario;
     private javax.swing.JMenuItem jmBienvenida;
+    private javax.swing.JMenuItem jmConsultarSistema;
+    private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenuItem jmEliminarCarro;
     private javax.swing.JMenuItem jmEliminarPremio;
     private javax.swing.JMenuItem jmEliminarPropietario;

@@ -24,6 +24,7 @@ import ufps.is.poo.util.Notificacion;
  * @author Emanuel Martinez Pinzon
  */
 public class registrarCarroPanel extends javax.swing.JPanel {
+    
     private Competencia competencia;
     
     public registrarCarroPanel(Competencia competencia) {
@@ -137,7 +138,6 @@ public class registrarCarroPanel extends javax.swing.JPanel {
         txtPlaca.setText("");
         txtMarca.setText("");
     }//GEN-LAST:event_cmdRegistrarCarroActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbModeloRegistrarCarro;
