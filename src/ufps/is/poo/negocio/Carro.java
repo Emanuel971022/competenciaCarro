@@ -60,7 +60,7 @@ public class Carro{
      * @return Retorna true dado el caso añada correctamente al propietario.
      * @throws Exception Si existen dos propietarios se genera una excepcion.
      */
-    public boolean agregarPropietario(int año, String nombre, String cc,
+    protected boolean agregarPropietario(int año, String nombre, String cc,
             String direccion, String ciudad, String telefono) throws Exception{
         if(!propietarios.containsKey(año))
             propietarios.put(año, new ArrayList<Propietario>());
@@ -83,7 +83,7 @@ public class Carro{
      * @param cc NIT del propietario
      * @return Retorna true dado el caso elimine el propietario
      */
-    public boolean borrarPropietario(int año, String cc){
+    protected boolean borrarPropietario(int año, String cc){
         ArrayList<Propietario> prop = propietarios.get(año);
         if(prop != null)
             for(Propietario x: prop)
@@ -100,7 +100,7 @@ public class Carro{
      * @param año Año en el que se borran todos los propietarios
      * @return Retorna true si consigue eliminar todos los propietarios de un año
      */
-    public boolean borrarTodosPropietarios(int año){
+    protected boolean borrarTodosPropietarios(int año){
         ArrayList<Propietario> prop = propietarios.get(año);
         if(prop != null)
             for(Propietario x: prop){
@@ -115,9 +115,37 @@ public class Carro{
      * Elimina todos los propietarios de un carro.
      * @return Retorna true porque siempre limpia el ArrayList
      */
-    public boolean borrarTodosPropietarios(){
+    protected boolean borrarTodosPropietarios(){
         propietarios.clear();        
         return true;
+    }
+    
+    /**
+     * Modifica la informacion de un propietario
+     * @param año Año de compra
+     * @param propietario NIT del propietario
+     * @param nuevoNombre Nuevo nombre
+     * @param nuevoCC Nuevo NIT
+     * @param nuevaDireccion Nueva direccion
+     * @param nuevaCiudad Nueva ciudad
+     * @param nuevoTelefono Nuevo telefono
+     * @return Retorna true cuando guarda la informacion
+     */
+    protected boolean modificarPropietario(int año, String propietario, String nuevoNombre,
+            String nuevoCC, String nuevaDireccion, String nuevaCiudad, String nuevoTelefono){
+        ArrayList<Propietario> prop = propietarios.get(año);
+        if(prop != null)
+            for(Propietario x: prop)
+                if(x.getCc().equalsIgnoreCase(propietario)){
+                    x.setNombre(nuevoNombre);
+                    x.setCc(nuevoCC);
+                    x.setDireccion(nuevaDireccion);
+                    x.setCiudad(nuevaCiudad);
+                    x.setTelefono(nuevoTelefono);
+                    return true;
+                }
+        
+        return false;
     }
     
     //----------------------REQUERIMIENTOS OPERACIONALES-----------------------//
@@ -137,12 +165,13 @@ public class Carro{
         
         return false;
     }
+    
     /**
      * Concatena y envia todos los propietarios de un año.
      * @param año Año para imprimir los propietarios.
      * @return Retorna un String con la informacion de los propietarios.
      */
-    public String imprimirPropietariosParaUnAño(int año){
+    protected String imprimirPropietariosParaUnAño(int año){
         String propietario = "";
                
         if(propietarios.containsKey(año)){
@@ -161,7 +190,7 @@ public class Carro{
      * @param año Año para imprimir los propietarios.
      * @return Retorna la informacion que reune.
      */
-    public String imprimirInfoBasicPropietariosParaUnAño(int año){
+    protected String imprimirInfoBasicPropietariosParaUnAño(int año){
         String propietario = "";
         
         ArrayList<Propietario> prop = propietarios.get(año);
@@ -177,7 +206,7 @@ public class Carro{
      * @param cc NIT para comprobar un propietario.
      * @return Retorna true si existe el propietario
      */
-    public boolean comprobarPropietario(String cc){
+    protected boolean comprobarPropietario(String cc){
         Collection<ArrayList<Propietario>> prop = propietarios.values();
         Iterator<ArrayList<Propietario>> it = prop.iterator();
         
@@ -194,7 +223,7 @@ public class Carro{
      * @param cc NIT para obtener el año en que un propietario fue dueño del carro.
      * @return Retorna el año.
      */
-    public int obtenerAño(String cc){
+    protected int obtenerAño(String cc){
         Iterator it = propietarios.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry e = (Map.Entry) it.next();
@@ -212,7 +241,7 @@ public class Carro{
      * @param año Año en el cual concatena los propietarios
      * @return Retorna un String con los NIT de los propietarios en un año
      */
-    public String concatenarPropietarios(int año){
+    protected String concatenarPropietarios(int año){
         String propietario = "";
         ArrayList<Propietario> prop = propietarios.get(año);
         if(prop != null)
@@ -221,33 +250,50 @@ public class Carro{
         
         return propietario;
     }
+    
+    /**
+     * Obtiene la informacion basica de un propieatrio
+     * @param año Año de compra
+     * @param propietario NIT del propietario
+     * @return Retorna la informacion basica del propieatrio
+     */
+    protected String obtenerInfoPropietario(int año, String propietario){
+        ArrayList<Propietario> prop = propietarios.get(año);
+        if(prop != null)
+            for(Propietario x: prop)
+                if(x.getCc().equalsIgnoreCase(propietario))
+                    return x.getNombre()+"~"+x.getCc()+"~"+x.getDireccion()+"~"
+                            +x.getCiudad()+"~"+x.getTelefono();
+                
+        return null;
+    }
 
     //-------------------------GETTER'S Y SETTER'S----------------------------//
-    public int cantidadPropietarios(){
+    protected int cantidadPropietarios(){
         return propietarios.size();
     }
     
-    public String getPlaca() {
+    protected String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(String placa) {
+    protected void setPlaca(String placa) {
         this.placa = placa;
     }
 
-    public String getMarca() {
+    protected String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    protected void setMarca(String marca) {
         this.marca = marca;
     }
 
-    public int getModelo() {
+    protected int getModelo() {
         return modelo;
     }
 
-    public void setModelo(int modelo) {
+    protected void setModelo(int modelo) {
         this.modelo = modelo;
     }
     

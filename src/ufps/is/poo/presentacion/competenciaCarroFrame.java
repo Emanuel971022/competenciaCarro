@@ -341,7 +341,7 @@ public class competenciaCarroFrame extends javax.swing.JFrame {
     /**
      * Ejecuta el metodo pack() y centra el formulario.
      */
-    public void montar(){
+    private void montar(){
         pack();
         setLocationRelativeTo(null);
     }

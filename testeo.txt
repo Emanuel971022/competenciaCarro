@@ -17,3 +17,5 @@ placa del carro.
     
 Si un propietario es dueño en el año 2002 y luego tambien en el año 2003 del mismo vehiculo, cuando este tiene premios en ambos años, no se muestran. 
 //Parece que era un error de capa 8 xD
+
+Con la existencia de solo un carro y un propietario para ese carro, cuando se carga la información en la nueva interfaz para modificar la información del objeto, la información fluye, luego de guardar cambios la información deja de llegar, creo que pondré botones y me quitaré el problema de los ActionPerformed con ComboBox...

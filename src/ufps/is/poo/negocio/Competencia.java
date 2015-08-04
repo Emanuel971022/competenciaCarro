@@ -30,7 +30,9 @@ import java.util.Map;
  * @version 1.4 24/07/15
  */
 public class Competencia{
-    private HashMap<Carro, ArrayList<Premio>> copas;    
+    
+    private HashMap<Carro, ArrayList<Premio>> copas;
+    
     public Competencia(){
         this.copas = new HashMap<>();
     }
@@ -296,6 +298,77 @@ public class Competencia{
         return true;
     }
     
+    /**
+     * Modifica la informacion de un carro almacenada en la memoria
+     * @param ID Placa del carro
+     * @param placa Nueva placa
+     * @param marca Nueva marca
+     * @param modelo Nuevo modelo
+     * @return Retorna true al guardar la nueva informacion del carro.
+     */
+    public boolean modificarCarro(String ID, String placa, String marca, int modelo){
+        Carro c = new Carro(ID);
+        
+        for(Carro x: copas.keySet())
+            if(x.equals(c)){
+                x.setPlaca(placa);
+                x.setMarca(marca);
+                x.setModelo(modelo);
+                return true;
+            }
+        
+        return false;
+    }
+    
+    /**
+     * Modifica un premio de un carro.
+     * @param placa Placa del carro.
+     * @param evento Evento del premio ganado
+     * @param año Año del premio ganado
+     * @param nuevoAño Nuevo año a ingresar
+     * @param nuevoPuesto Nuevo puesto a ingresar
+     * @param nuevoEvento Nuevo evento a ingresar
+     * @return Retorna true cuando guarda la informacion de los premios
+     */
+    public boolean modificarPremio(String placa, String evento, int año,
+            int nuevoAño, int nuevoPuesto, String nuevoEvento){
+        Carro c = new Carro(placa);
+        ArrayList<Premio> premios = copas.get(c);
+        if(premios != null)
+            for(Premio x: premios)
+                if(x.getEvento().equalsIgnoreCase(evento) && x.getAnio() == año){
+                    x.setAnio(nuevoAño);
+                    x.setPuesto(nuevoPuesto);
+                    x.setEvento(nuevoEvento);
+                    return true;
+                }
+                
+        return false;
+    }
+    
+    /**
+     * Modifica la informacion de un propietario para un carro.
+     * @param placa Placa del carro
+     * @param año Año de compra
+     * @param propietario NIT del propietario
+     * @param nuevoNombre Nuevo nombre a guardar
+     * @param nuevaCC Nuevo NIT a guardar
+     * @param nuevaDireccion Nueva direccion a guardar
+     * @param nuevaCiudad Nueva ciudad a guardar
+     * @param nuevoTelefono nuevo Telefono a guardar
+     * @return Retorna true cuando se guarda la informacion
+     */
+    public boolean modificarPropietario(String placa, int año, String propietario,
+            String nuevoNombre, String nuevaCC, String nuevaDireccion, String nuevaCiudad, String nuevoTelefono){
+        Carro c = new Carro(placa);
+        for(Carro x: copas.keySet())
+            if(x.equals(c))
+                return x.modificarPropietario(año, propietario, nuevoNombre, nuevaCC,
+                        nuevaDireccion, nuevaCiudad, nuevoTelefono);
+        
+        return false;
+    }
+    
     //------------------------REQUERIMIENTOS DEL EXAMEN------------------------//
     /**
      * Busca cuales fueron los propietarios de un carro o varios carros para un
@@ -426,5 +499,55 @@ public class Competencia{
                 return x.concatenarPropietarios(año);
             
         return "";
+    }
+    
+    /**
+     * Obtiene la informacion de un carro
+     * @param placa Placa del carro
+     * @return Retorna la informacion de un carro
+     */
+    public String obtenerInfoCarro(String placa){
+        Carro c = new Carro(placa);
+        
+        for(Carro x: copas.keySet())
+            if(x.equals(c))
+                return x.getPlaca()+"~"+x.getMarca();
+        
+        return null;
+    }
+    
+    /**
+     * Obtiene la informacion de un premio
+     * @param placa placa del carro
+     * @param premio premio
+     * @return Retorna la informacion del premio
+     */
+    public String obtenerInfoPremios(String placa, String premio){
+        Carro c = new Carro(placa);
+        ArrayList<Premio> premios = copas.get(c);
+        if(premios != null) 
+            for(Premio x: premios)
+                if(x.getEvento().equalsIgnoreCase(premio))
+                    return x.getPuesto()+"~"+x.getEvento();
+            
+        
+        return null;
+    }
+    
+    /**
+     * Obtiene la informacion de un propietario
+     * @param placa Placa del carro
+     * @param año Año de compra
+     * @param propietario NIT del propietario
+     * @return Retorna la informacion del propietario
+     */
+    public String obtenerInfoPropietario(String placa, int año, String propietario){
+        Carro c = new Carro(placa);
+        
+        for(Carro x: copas.keySet())
+            if(x.equals(c))
+                return x.obtenerInfoPropietario(año, propietario);
+        
+        return null;
     }
 }
